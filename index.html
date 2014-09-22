@@ -2,13 +2,54 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Highcharts Visualization</title>
-    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Input File</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
-        <script src="js/main.js"></script>
+        <script type="text/javascript" src="inc/jquery-2.1.1.min.js"></script>
+    	<script type="text/javascript" src="inc/jquery.mobile-1.4.4.min.js"></script>
+    	<script type="text/javascript" src="inc/global.js"></script>
+        
+        <link type="text/css" rel="stylesheet" href="inc/jquery.mobile-1.4.3.min.css"/>
+ 
     </head>
     
     <body>
+    	<div data-role="page" id="index">
+        	<div data-role="content">
+            
+            <div data-role="header">
+            	<h1>Math Stuff</h1>
+            </div>
+                <form name="fileInput" onSubmit="validate">
+                    <input id="fileSelect" data-role="button" type="file">
+                    <div class="ui-field-contain">
+                    	<fieldset data-role="controlgroup">
+                        	
+                            <legend>Choose the type of chart/graph you would like.</legend>
+                            <input type="checkbox" name="choice1" id="choice1" class="custom">
+                          	<label for="choice1">Pie Chart</label>
+                     
+                            <input type="checkbox" name="choice2" id="choice2" class="custom">
+                            <label for="choice2">Line Graph</label>
+                     
+                            <input type="checkbox" name="choice3" id="choice3" class="custom">
+                            <label for="choice3">Bar Graph</label>
+                     
+                        </fieldset>
+                    </div>
+        
+                    <input type="submit" data-role="button" value="submit" id="fileSubmit">   
+                       
+                </form>
+            </div>
+        </div>
     	
+        <div data-role="page" id="page2">
+        
+        </div>
+        
     </body>
+    
+    
 </html>
