@@ -6,16 +6,20 @@
         <title>Input File</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
-        <script type="text/javascript" src="jquery/inc/jquery-2.1.1.min.js"></script>
-    	<script type="text/javascript" src="jquery/inc/jquery.mobile-1.4.4.min.js"></script>
+        <script type="text/javascript" src="inc/jquery/jquery-2.1.1.min.js"></script>
+    	<script type="text/javascript" src="inc/jquery/jquery.mobile-1.4.4.min.js"></script>
     	<script type="text/javascript" src="inc/global.js"></script>
         
-        <link type="text/css" rel="stylesheet" href="inc/jquery.mobile-1.4.3.min.css"/>
+        <link type="text/css" rel="stylesheet" href="inc/jquery/jquery.mobile-1.4.3.min.css"/>
  
     </head>
     
     <body>
     	<div data-role="page" id="index">
+        	<script type="text/javascript">
+			 	console.log('index loaded');
+			</script>
+
         	<div data-role="content">
             
             <div data-role="header">
@@ -42,12 +46,14 @@
                     <input type="submit" data-role="button" value="submit" id="fileSubmit">   
                        
                 </form>
+                
+            </div>
+            <div id="graph">
+            
+            
             </div>
         </div>
-    	
-        <div data-role="page" id="page2">
-        
-        </div>
+
         
     </body>
     

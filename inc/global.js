@@ -1,10 +1,11 @@
 // JavaScript Document
-	$(document).ready(function(e) {
+$(document).on('pageinit', function() {
 		console.log('Ready event fired');
 		
-		$('#fileSubmit').bind('click', clicked());
+		//$('#fileSubmit').bind('click', clicked());
 		
-	});
+
+});
 	
 	function dothis(){
 		alert('foobar');	
