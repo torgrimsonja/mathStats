@@ -1,14 +1,19 @@
 // JavaScript Document
-$(document).on('pageinit', function() {
+	$(document).on('pageinit', function() {
 		console.log('Ready event fired');
 		
 		//$('#fileSubmit').bind('click', clicked());
 		
-
-});
+		dothis();
+	});
 	
 	function dothis(){
-		alert('foobar');	
+		
+		$( "#graphChoice" ).submit(function( event ) {
+			console.log( "Handler for .submit() called." );
+			event.preventDefault();
+		});
+	
 	}
 	
 	function validate(){
@@ -33,6 +38,7 @@ $(document).on('pageinit', function() {
 		var choice2 = document.getElementById('choice2');
 		var choice3 = document.getElementById('choice3');
 		
+		/*
 		if(validate()){
 			if(choice1.checked){
 				alert('You have chosen the Pie Chart');
@@ -48,7 +54,8 @@ $(document).on('pageinit', function() {
 		else{
 			alert('You need to choose a graph');
 		}
-		
+		*/
 		
 		
 	}
+	
