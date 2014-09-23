@@ -7,7 +7,11 @@
 		dothis();
 	});
 	
+	//This function will be used to submit file
 	function dothis(){
+		$("#help").click(function(){
+			alert("Choose your file and graph type. Next click submit and watch as your graph is printed out on screen.");	
+		});
 		
 		$( "#graphChoice" ).submit(function( event ) {
 			console.log( "Handler for .submit() called." );
