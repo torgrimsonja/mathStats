@@ -5,7 +5,7 @@
 //Three remaining variables to get from the csv file -- need to figure out which element of which array they will be, then set them accordingly, likley in the processData function
 var titleName = asdf;
 var yAxisTitle = asdf;
-var chartType = asdf;
+
 
 //Define initial skeleton for chart
 var options = {
@@ -64,11 +64,16 @@ function processData(data){
 	var chart = new Highcharts.Chart(options);
 }
 
+//Create chart
 $.(document).ready(function (){
 	
+	var chartType = $().selected;
+
 	$.ajax({ 
+	
+	
 		type: "POST", 
-		url: "/",		//Need to add the correct url
+		url: "../index.html",		//Need to add the correct url
 		dataType: "csv", 
 		success: function(data){
 			processData(data);
