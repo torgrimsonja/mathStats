@@ -23,9 +23,9 @@
 	
 	}
 	
+	//This funtion will check to see if a graph type is selected
 	function validate(){
 		console.log('In validate()');
-		valid = true;
 
 		var selected = $('#fileSelect').val();
 		var choice1 = $("#choice1");
@@ -33,19 +33,19 @@
 		var choice3 = $("#choice3");
 		
 		
-		if(choice1.is(':checked')){
+		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
 			alert('You chose the Pie Chart.');
 			location.reload();
 		}
-		else if(choice2.is(':checked')){
+		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
 			alert('You chose the Line Graph.');			
 			location.reload();
 		}
-		else if(choice3.is(':checked')){
+		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
 			alert('You chose the Bar Graph.');
 			location.reload();	
 		}
-		else{
+		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
 			location.reload();
 		}
