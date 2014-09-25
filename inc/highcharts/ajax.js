@@ -65,6 +65,7 @@ function processData(data){
 }
 
 //Create chart
+//Change ready function to on submit/when the php gets done
 $.(document).ready(function (){
 	
 	var chartType = $().selected;
