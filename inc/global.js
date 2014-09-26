@@ -53,10 +53,8 @@
 		
 	}
 	
-	//Ajax javascript starts here!!
 	
-	//Need to set correct file url in the ajax function
-	//Three remaining variables to get from the csv file -- need to figure out which element of which array they will be, then set them accordingly, likley in the processData function
+	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
 	var titleName = asdf;
 	var yAxisTitle = asdf;
 	
@@ -114,12 +112,12 @@
 				
 			}
 		});
-		//Create the chart
+		//Set the code for the chart to a variable
 		var chart = new Highcharts.Chart(options);
 	}
 		
-		//Create chart
-	//Change ready function to on submit/when the php gets done
+	//Create chart
+	//Run this code once the csv file has been submitted and a chart type chosen
 	if(validate() == 1){
 		
 		var chartType = 'pie';
