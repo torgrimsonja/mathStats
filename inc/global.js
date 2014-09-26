@@ -161,6 +161,11 @@
 			dataType: "csv", 
 			success: function(data){
 				processData(data);
+				$(function(){
+					$('#container').highcharts({}
+						//Map the generated chart to the container div for display
+					}
+				}
 			}
 		});
 	}
