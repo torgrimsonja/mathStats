@@ -162,10 +162,10 @@
 			success: function(data){
 				processData(data);
 				$(function(){
-					$('#container').highcharts({}
+					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-					}
-				}
+					});
+				});
 			}
 		});
 	}
