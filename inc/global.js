@@ -57,6 +57,7 @@
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
 	var titleName = asdf;
 	var yAxisTitle = asdf;
+	var data = asdf;  //This variable needs to come from the php somehow i think
 	
 	
 	//Define initial skeleton for chart
@@ -161,9 +162,10 @@
 			dataType: "csv", 
 			success: function(data){
 				processData(data);
-				$(function(){
+				$(function(options){
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
+						//Currently attempting to pass the options through the parent function to see if it will generate the chart
 					});
 				});
 			}

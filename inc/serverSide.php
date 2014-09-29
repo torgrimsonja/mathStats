@@ -2,6 +2,8 @@
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be recreated with them at a later time
 	
 	//Get file from html form upload
+		$fileUpload = $_FILES[];
+		
 		
 		if ($_FILES["file"]["type"] == "csv"){
 			//Make sure the file type is csv
