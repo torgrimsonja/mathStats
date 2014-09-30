@@ -116,6 +116,12 @@
 		//Set the code for the chart to a variable
 		var chart = new Highcharts.Chart(options);
 	}
+	
+	//Pass the generating function the code for the options
+	function codeChart(options){
+		var chart = new Highcharts.Chart(options);
+		return chart;	
+	}
 		
 	//Create chart
 	//Run this code once the csv file has been submitted and a chart type chosen
@@ -162,10 +168,10 @@
 			dataType: "csv", 
 			success: function(data){
 				processData(data);
-				$(function(options){
+				$(function(){
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-						//Currently attempting to pass the options through the parent function to see if it will generate the chart
+						codeChart();
 					});
 				});
 			}
