@@ -163,37 +163,9 @@
 				processData(data);
 			}
 		});
-		var chart = $('#container').highcharts({
-			//Map the generated chart to the container div for display
-			chart: {
-				backgroundColor: {
-					linearGradient: [0, 0, 0, 300],
-					stops: [
-						[0, '#FFFFFF'],
-						[1, '#E0E0E0']
-					]
-				}
-			},
-
-			credits: {
-				enabled: false
-			},
-	
-			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-			},
-	
-			series: [{
-				data: data
-			}],
-	
-			navigation: {
-				buttonOptions: {
-					enabled: false
-				}
-			}
+		
+		$('#container').highcharts({
 			
    	 	});
-		chart.print();	
 	}
 		
