@@ -161,15 +161,12 @@
 			dataType: "csv", 
 			success: function(data){
 				processData(data);
-<<<<<<< HEAD
 				$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
 						codeChart();
 					});
 				});
-=======
->>>>>>> origin/master
 			}
 		});
 		
