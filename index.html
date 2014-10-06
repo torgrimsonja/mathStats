@@ -25,8 +25,13 @@
             <div data-role="header">
             	<h1>Math Stats</h1>
             </div>
-                <form id="graphChoice" name="fileInput" onSubmit="validate">
-                    <input id="fileSelect" data-role="button" type="file">
+            	<!-- Form that will allow uses to upload file and choose graph type -->
+                <!-- File is sent to serverSide.php to be saved and processed -->
+                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="inc/serverSide.php" enctype="multipart/form-data" method="POST">
+                	<!-- Restrict file uploads that will fail -->
+                	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                    <!-- Name of input element for upload determines name in the $_FILES array -->
+                    <input id="fileSelect" data-role="button" type="file" name="User_Upload">
                     <div class="ui-field-contain">
                     	<fieldset data-role="controlgroup">
                         	
