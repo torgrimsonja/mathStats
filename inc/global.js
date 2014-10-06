@@ -158,15 +158,16 @@
 		
 			type: "POST", 
 			url: "../index.html",		//Need to add the correct url
-			dataType: "csv", 
+			dataType: "text", 
 			success: function(data){
 				processData(data);
 				$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-						codeChart();
+						//codeChart();
 					});
 				});
+
 			}
 		});
 		
