@@ -12,7 +12,8 @@
 					 echo $_FILES["file"]["name"]."already exists, an underscore and incremented number will be added to the end of the file name.";
 					 
 					 $fileIncrement = while(file_exists($_FILES["file"]["tmp_name"])){
-					  };
+						//Code while loop to increment file names for uploads on the same day, as explained below 
+					 };
 					 
 					 $_FILES["file"]["name"] = $_FILES["file"]["tmp_name"]."_".$fileIncrement;
 					  
