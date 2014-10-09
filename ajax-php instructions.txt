@@ -1,0 +1,14 @@
+See http://stackoverflow.com/questions/23740548/how-to-pass-variables-and-data-from-php-to-javascript
+and http://stackoverflow.com/questions/10341434/get-variable-from-php-file-using-jquery-ajax
+
+Goals: Have data read into highcharts function through ajax
+
+Methods:
+1. Save File with a name based on the date with php
+2. Read data from the file in the php, and set all the important data into an organized array
+3. Echo the array variable with all the necessary data, after json_encoding it
+4. In JS file, use $.ajax to write a success function pointing to the php file
+5. The data is returned to the javascript through the success function's parameter
+6. Once data has been received by the success function, proceed to fill in the options and required
+variables for the Highchart with it.
+7. Display the Highchart
