@@ -157,7 +157,7 @@
 		
 		
 			type: "POST", 
-			url: "../index.html",		//Need to add the correct url
+			url: titleName,		//Need to add the correct url
 			dataType: "text", 
 			success: function(data){
 				processData(data);
