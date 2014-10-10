@@ -112,10 +112,9 @@
 				
 			}
 		});
-		//Set the code for the chart to a variable
-		var chart = new Highcharts.Chart(options);
 	}
-		
+	//Set the code for the chart to a variable
+	var chart = new Highcharts.Chart(options);
 	//Create chart
 	//Run this code once the csv file has been submitted and a chart type chosen
 	if(validate() == 1){
@@ -157,14 +156,14 @@
 		
 		
 			type: "POST", 
-			url: titleName,		//Need to add the correct url
+			url: "serverSide.php",		//Need to add the correct url
 			dataType: "text", 
 			success: function(data){
 				processData(data);
 				$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-						//codeChart();
+						//chart.print(options);
 					});
 				});
 
