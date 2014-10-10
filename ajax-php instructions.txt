@@ -12,3 +12,5 @@ Methods:
 6. Once data has been received by the success function, proceed to fill in the options and required
 variables for the Highchart with it.
 7. Display the Highchart
+
+Data to pass from PHP to JS:
