@@ -56,7 +56,7 @@
 	
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
 	var titleName = asdf/*Date uploaded*/;
-	var yAxisTitle = asdf/*Temperature in C and F*/;
+	var yAxisTitle = "Temperature";
 	
 	
 	//Define initial skeleton for chart
@@ -77,7 +77,14 @@
 				text: yAxisTitle	
 			}
 		},
-		series: []
+		series: [{
+					name:"Celsius",
+					data:[]
+				 },
+				{
+					name:"Fahrenheit",
+					data:[]
+				}]
 	};
 	
 	function processData(data){
