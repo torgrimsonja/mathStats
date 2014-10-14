@@ -28,8 +28,8 @@
 					  //move_uploaded_file(string $filename, string $destination);
 					  //Will need to make sure that this function is pointed to the correct location and that the uploads folder can simply be local... it probably cant
 					  //Upload file to proper location with a name that is based off of the date of the upload
-					  $_FILES["file"]["name"] == 
-					  move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads"); //Location needs changed
+					  $_FILES["file"]["name"] = 
+					  move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads");
 					  echo "Uploading: " . $_FILES['file']['name'] . "<br />";
 					  if(file_exists($uploadPath . $_FILES["file"]["name"])){
 						 echo "Upload successful.";
@@ -43,5 +43,12 @@
 		 }
 		 
 	//Set up Load File functionality
+	
+	//Read file and convert to neccessary arrays
+	$data;
+	
+	//Set up variables and whatnot to pass to JS
+		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
+		echo $data;
 	
 ?>
