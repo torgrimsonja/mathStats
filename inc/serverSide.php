@@ -11,6 +11,7 @@
 			//Move the file to our file system from the POST array
 			move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads");
 			echo "Uploading: " . $_FILES['file']['name'] . "<br />";
+			 //Check that it is in the uploads folder
 			 if(file_exists($uploadPath . $_FILES["file"]["name"])){
 				 echo "Upload successful.";
 			 }else{
@@ -21,12 +22,15 @@
 			echo "Invalid file, please try again...";
 		 }
 		 
-	//Set up Load File functionality
-	
-	//Read file and convert to neccessary arrays
-	$data;
+	//Set up Load File functionality -- maybe put in separate file with other ajax saving stuff?
+	if(asdf){
+		$fileName = $_GET['name'];
+	}
+	$loadFile = file($uploadPath.$fileName);
 	
 	//Set up variables and whatnot to pass to JS
+		//??parse data??
+		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
 	
