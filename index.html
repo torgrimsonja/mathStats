@@ -9,7 +9,6 @@
         <script type="text/javascript" src="inc/jquery/jquery-2.1.1.min.js"></script>
     	<script type="text/javascript" src="inc/jquery/jquery.mobile-1.4.4.min.js"></script>
     	<script type="text/javascript" src="inc/global.js"></script>
-        <script type="text/javascript" src="inc/highcharts/hEM.js"></script>
         
         <link type="text/css" rel="stylesheet" href="inc/jquery/jquery.mobile-1.4.3.min.css"/>
  
@@ -32,7 +31,7 @@
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
-                    <input id="fileSelect" data-role="button" type="file" name="file">
+                    <input id="fileSelect" data-role="button" type="file" name="file" onBlur="checkName()"><span id="errorFileName" style="color: red; font-weight:bold; display:hidden;"></span>
                     <div class="ui-field-contain">
                     	<fieldset data-role="controlgroup">
                         	
@@ -65,3 +64,5 @@
     
     
 </html>
+
+
