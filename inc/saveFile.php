@@ -1,6 +1,6 @@
 <?php
 
-//Handle file name check
+//Handle save file name check
 if(	array_key_exists('action', $_GET) &&
 	$_GET['action'] = 'checkName' &&
 	array_key_exists('name', $_GET)
@@ -11,5 +11,8 @@ if(	array_key_exists('action', $_GET) &&
 	   echo "Invalid";
 	}
 }
+
+//Handle loading of previously saved files for chart creation
+
 
 ?>

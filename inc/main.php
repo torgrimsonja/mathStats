@@ -21,12 +21,6 @@
 			//Deal with non-csv files
 			echo "Invalid file, please try again...";
 		 }
-		 
-	//Set up Load File functionality -- maybe put in separate file with other ajax saving stuff?
-	if(asdf){
-		$fileName = $_GET['name'];
-	}
-	$loadFile = file($uploadPath.$fileName);
 	
 	//Set up variables and whatnot to pass to JS
 		//??parse data??
