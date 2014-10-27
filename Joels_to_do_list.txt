@@ -13,15 +13,3 @@ Next:
 	i.e. Print the graph
 
  *Clean up the filesystem, modularize the php*
-
-
-PHP for Selection List
-______________
-
-<?php
-   $dir = "/uploads";
-   $files = scandir($dir);
-   foreach($file as $i){
-   	echo "<option name=''.$fileTitle.''value=''.$i.''>'.$fileTitle.'</options>";
-   }
-?>

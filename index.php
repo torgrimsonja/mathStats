@@ -35,9 +35,14 @@
                     <select id="loadFile" data-role="button" type="file" name="file">
                     	<!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
-                        <option value="fish">bla</option>
-                        <option value="cat">foo</option>
-                        <option value="dog">llama</option>
+                        <?php
+						   $dir = "/uploads";
+						   $files = scandir($dir);
+						   $i=1;
+						   foreach($file as $key => $value/* File in directory */){
+							echo "<option name=".$fileTitle." value=".$key.">".$fileTitle."</options>";
+						   }
+						?>
                     	<!-- Input php selection list generation here -->
                     </select>
                     <div class="ui-field-contain">
