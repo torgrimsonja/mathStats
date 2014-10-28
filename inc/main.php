@@ -5,8 +5,11 @@
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
-					  
-		 if($_FILES['file']['type'] == "csv"){
+		 if(array_key_exists($_POST['load'])){
+			//Use chosen file in filesystem for chart generation
+		 	$chosenFile = $_POST['load'];
+		 
+		 }else if($_FILES['file']['type'] == "csv"){
 			//Make sure the file type is csv
 			//Move the file to our file system from the POST array
 			move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads");
