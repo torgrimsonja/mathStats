@@ -3,7 +3,9 @@ http://stackoverflow.com/questions/16177524/populate-a-select-list-from-a-direct
 http://php.net/manual/en/function.scandir.php
 
 Next:
-1. Write code for dropdown selection list with all files in our system --scandir()--
+**Done**Selection List
+
+1.5. Write code for form to load chosen file when submitted??
 
 2. Add Title metadata functionality for when users save files to our system
 
@@ -12,4 +14,4 @@ Next:
 4. Make sure that various exporting options are available when graph is displayed for user
 	i.e. Print the graph
 
- *Clean up the filesystem, modularize the php*
+ *Clean up the filesystem, modularize the php?*
