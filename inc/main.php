@@ -5,9 +5,10 @@
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
-		 if(array_key_exists($_POST['load'])){
+		 if(array_key_exists($_GET['action'])
+		    && $_GET['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
-		 	$chosenFile = $_POST['load'];
+		 	$chosenFile = $_GET['load'];
 		 
 		 }else if($_FILES['file']['type'] == "csv"){
 			//Make sure the file type is csv
