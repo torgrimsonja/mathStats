@@ -6,6 +6,7 @@ Next:
 **Done**Selection List
 
 1.5. Write code for form to load chosen file when submitted??
+	//Need to have form add post array qualifier so that it knows not to check for uploaded files
 
 2. Add Title metadata functionality for when users save files to our system
 

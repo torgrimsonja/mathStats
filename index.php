@@ -40,7 +40,7 @@
 						   $dir = "/uploads";
 						   $files = scandir($dir);
 						   foreach($files as $key => $fileName/* File in directory */){
-							echo "<option name=".$fileName." value=".$key.">".$fileName."</options>";
+							echo "<option name='".$fileName."' value='load_".$key."'>".$fileName."</options>";
 						   }
 						?>
                     	<!-- Input php selection list generation here -->
