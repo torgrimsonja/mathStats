@@ -2,13 +2,13 @@
 <?php
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
 	error_reporting(E_ALL);
-	require_once('common.php');
+	require_once('../common.php');
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
 		 if(array_key_exists($_POST['load'])){
 			//Use chosen file in filesystem for chart generation
-		 	$chosenFile = $_POST['load'];
+		 	$chosenFile = $uploadPath.$_POST['load'];
 		 
 		 }else if($_FILES['file']['type'] == "csv"){
 			//Make sure the file type is csv
@@ -29,7 +29,7 @@
 	
 	//Set up variables and whatnot to pass to JS
 		//??parse data??
-		header('Location:'.$path);
+		
 		
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
