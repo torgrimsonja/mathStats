@@ -116,45 +116,30 @@
 	}	
 	//Create chart
 	//Run this code once the csv file has been submitted and a chart type chosen
+	$.ajax({ 
+			type: "POST", 
+			url: "main.php",		//Need to add the correct url
+			dataType: "text", 
+			success: function(data){
+				processData(data);
+			}
+		});
+			$('#container').highcharts({
+   	 	});
 	if(validate() == 1){
 		var chartType = 'pie';
-		$.ajax({
-			type: "POST", 
-			url: "main.php",		//Need to add the correct url
-			dataType: "text", 
-			success: function(data){
-				processData(data);
-			}
-		});
-	}
-	else if(validate() == 2){
-		var chartType = 'line';
-		$.ajax({ 
-			type: "POST", 
-			url: "main.php",		//Need to add the correct url
-			dataType: "text", 
-			success: function(data){
-				processData(data);
-			}
-		});
-	}
-	else if(validate() == 3){
-		var chartType = 'bar';
-		$.ajax({ 
-			type: "POST", 
-			url: "main.php",		//Need to add the correct url
-			dataType: "text", 
-			success: function(data){
-				processData(data);
-				$(function(){						
+		$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
 						//chart.print(options);
 					});
 				});
-			}
-		});
-		$('#container').highcharts({
-			
-   	 	});
+	}
+	else if(validate() == 2){
+		var chartType = 'line';
+		
+	}
+	else if(validate() == 3){
+		var chartType = 'bar';
+		
 	}
