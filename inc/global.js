@@ -53,8 +53,8 @@
 			location.reload();
 		}
 	}
-	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
-	var titleName = asdf/*Date uploaded*/;
+	
+	var title = asdf;
 	var yAxisTitle = "Temperature";
 	//Define initial skeleton for chart
 	var options = {
@@ -84,6 +84,7 @@
 				}]
 	};
 	function processData(data){
+		console.log();
 		//Split the rows
 		var dataRows = data.split("\n");
 		//Iterate over the lines and add categories or series
