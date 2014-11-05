@@ -37,7 +37,6 @@
 		var choice2 = $("#choice2");
 		var choice3 = $("#choice3");
 		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 1;
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
