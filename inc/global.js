@@ -9,7 +9,7 @@
 		$("#help").click(function(){
 			alert("Choose your file and graph type. Next click submit and watch as your graph is printed out on screen.");	
 		});
-		$( "#graphChoice" ).submit(function( event ) {
+		$( "#fileSubmit" ).submit(function( event ) {
 			console.log( "Handler for .submit() called." );
 			event.preventDefault();
 			validate();
