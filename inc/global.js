@@ -131,8 +131,8 @@
 		$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-						//chart.print(options);
 					});
+					chart.print(options);
 				});
 	}
 	else if(validate() == 2){
