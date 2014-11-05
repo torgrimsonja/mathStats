@@ -41,16 +41,14 @@
 			return 1;
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 2;
 		}
 		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 3;	
 		}
 		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
-			location.reload();
+			dothis();
 		}
 	}
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
