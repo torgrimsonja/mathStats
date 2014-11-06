@@ -17,14 +17,14 @@
 	}
 	function checkName(){
 		var filePath = document.getElementById("fileSelect").value();
-		var fileName = filePath.replace(/^.*[\\\/]/, '')
+		var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
 			type: "GET", 
 			url: "../ajax.php?action=checkName&name="+fileName,		
 			success: function(result){
 				if(result == 'Invalid'){
 					document.getElementById('errorFileName').style.display="inline";
-					document.getElementById('errorFileName').innerHTML == 'File name taken...rename your file and try again.';
+					document.getElementById('errorFileName').innerHTML = 'File name taken...rename your file and try again.';
 				}
 			}
 		});
@@ -51,7 +51,7 @@
 		}
 	}
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
-	var titleName = asdf/*Date uploaded*/;
+	var titleName = 'asdf'/*Date uploaded*/;
 	var yAxisTitle = "Temperature";
 	//Define initial skeleton for chart
 	var options = {
