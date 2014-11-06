@@ -9,7 +9,7 @@
 		$("#help").click(function(){
 			alert("Choose your file and graph type. Next click submit and watch as your graph is printed out on screen.");	
 		});
-		$( "#graphChoice" ).submit(function( event ) {
+		$( "#fileSubmit" ).submit(function( event ) {
 			console.log( "Handler for .submit() called." );
 			event.preventDefault();
 			validate();
@@ -37,20 +37,17 @@
 		var choice2 = $("#choice2");
 		var choice3 = $("#choice3");
 		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 1;
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 2;
 		}
 		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
-			location.reload();
 			return 3;	
 		}
 		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
-			location.reload();
+			dothis();
 		}
 	}
 	
@@ -132,8 +129,8 @@
 		$(function(){						
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
-						//chart.print(options);
 					});
+					chart.print(options);
 				});
 	}
 	else if(validate() == 2){
