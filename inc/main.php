@@ -3,14 +3,16 @@
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
 	error_reporting(E_ALL);
 	require_once('../common.php');
+	$_FILES['file'];
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
+	
 		 if(array_key_exists($_POST['load'])){
 			//Use chosen file in filesystem for chart generation
 		 	$chosenFile = $uploadPath.$_POST['load'];
 		 
-		 }else if($_FILES['file']['type'] == "csv"){
+		 }else if($_FILES['file']['type'] == "csv"){		
 			//Make sure the file type is csv
 			//Move the file to our file system from the POST array
 			move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads");

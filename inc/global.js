@@ -20,7 +20,7 @@
 		var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
 			type: "GET", 
-			url: "../ajax.php?action=checkName&name="+fileName,		
+			url: "../ajax.php?action=checkName()&name="+fileName,		
 			success: function(result){
 				if(result == 'Invalid'){
 					document.getElementById('errorFileName').style.display="inline";
@@ -50,8 +50,13 @@
 			dothis();
 		}
 	}
+<<<<<<< HEAD
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
 	var titleName = 'asdf'/*Date uploaded*/;
+=======
+	
+	var title = asdf;
+>>>>>>> origin/master
 	var yAxisTitle = "Temperature";
 	//Define initial skeleton for chart
 	var options = {
@@ -81,6 +86,7 @@
 				}]
 	};
 	function processData(data){
+		console.log();
 		//Split the rows
 		var dataRows = data.split("\n");
 		//Iterate over the lines and add categories or series
