@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -45,8 +44,8 @@
 						//Generate options for selection list based on previously saved files
 						   $dir = "/uploads";
 						   $files = scandir($dir);
-						   foreach($files as $key => $fileName/* File in directory */){
-							echo "<option name='".$fileName."' value='load_".$key."'>".$fileName."</options>";
+						   foreach($files as $fileName/* File in directory */){
+							echo "<option name='".$fileName."' value='load_".$fileName."'>".$fileName."</options>";
 						   }
 						?>
                     	<!-- Input php selection list generation here -->
