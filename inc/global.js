@@ -53,10 +53,6 @@
 
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
 	var titleName = 'asdf'/*Date uploaded*/;
-
-	
-	var title = asdf;
-
 	var yAxisTitle = "Temperature";
 	//Define initial skeleton for chart
 	var options = {
