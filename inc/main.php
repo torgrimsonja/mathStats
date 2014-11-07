@@ -11,6 +11,7 @@
 		 if(array_key_exists($_POST['load'])){
 			//Use chosen file in filesystem for chart generation
 		 	$chosenFile = $uploadPath.$_POST['load'];
+		 	
 		 
 		 }else if($_FILES['file']['type'] == "csv"){		
 			//Make sure the file type is csv
@@ -26,7 +27,7 @@
 			 }
 		 }else{
 			//Deal with non-csv files
-			echo "Invalid file, please try again...";
+			echo "Invalid file, please try again... <script type='text/javascipt'>console.</script>";
 		 }
 	
 	//Set up variables and whatnot to pass to JS
