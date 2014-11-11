@@ -15,7 +15,21 @@
 			validate();
 		});
 	}
+	function checkIfFile(){
+		console.log("In new function...");
+			var i=0;
+			var fileName = document.getElementById("#fileSelect");
+			while(i==0){
+				console.log("In loop");
+				if(fileName != null){
+					checkName();
+					break;
+				}
+			}
+	}
+	
 	function checkName(){
+		console.log("In checkname function");
 		var filePath = document.getElementById("fileSelect").value;
 		var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
@@ -38,12 +52,14 @@
 		var choice3 = $("#choice3");
 		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
 			return 1;
+			checkName();
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
 			return 2;
 		}
 		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
-			return 3;	
+			return 3;
+			
 		}
 		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
