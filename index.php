@@ -32,11 +32,11 @@
             </div>
             	<!-- Form that will allow uses to upload file and choose graph type -->
                 <!-- File is sent to serverSide.php to be saved and processed -->
-                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="/inc/main.php" enctype="multipart/form-data" method="POST">
+                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="inc/main.php" enctype="multipart/form-data" method="POST">
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
-                    <input id="fileSelect" data-role="button" type="file" name="file" onClick="checkIfFile()"><span id="errorFileName" style="color: red; font-weight:bold; display:hidden;"></span>
+                    <input id="fileSelect" data-role="button" type="file" name="file" onChange="checkIfFile()"><span id="errorFileName" style="color: red; font-weight:bold; display:hidden;"></span>
                     <select id="loadFile" data-role="button" type="file" name="file">
                     	<!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>

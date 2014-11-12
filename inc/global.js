@@ -18,20 +18,22 @@
 	function checkIfFile(){
 		console.log("In new function...");
 			var i=0;
-			var fileName = document.getElementById("#fileSelect");
+			var fileName = $("#fileSelect");
 			while(i==0){
 				console.log("In loop");
-				if(fileName != null){
+				if(fileName != ""){
 					checkName();
-					break;
+					i++;
 				}
+				
 			}
 	}
 	
 	function checkName(){
 		console.log("In checkname function");
-		var filePath = document.getElementById("fileSelect").value;
-		var fileName = filePath.replace(/^.*[\\\/]/, '');
+		var filePath = $("#fileSelect").value;
+		alert(filePath);
+		//var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
 			type: "GET", 
 			url: "../ajax.php?action=checkName&name="+fileName,		
