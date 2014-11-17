@@ -6,12 +6,12 @@ To Do:
 	//Need to have form add post array qualifier so that it knows not to check for uploaded files
 
 2. Add Title metadata functionality for when users save files to our system
+    ?? var joel = "confused"; ??
 
 3. Begin data parsing in php for highchart to be passed through ajax
 
-3.5. After data is parsed with main.php, point to global.js and have it do its magic, then display the graph
+3.5. After data is parsed with main.php, point to global.js(is this done with ajax?) and have it do its magic, then display the graph
 
 4. Make sure that various exporting options are available when graph is displayed for user
-	i.e. Print the graph
 
  *Clean up the filesystem, modularize the php?*
