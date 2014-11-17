@@ -53,14 +53,17 @@
 		var choice2 = $("#choice2");
 		var choice3 = $("#choice3");
 		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
-			return 1;
+			console.log("One");
+            return 1;
 			checkName();
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
-			return 2;
+			console.log("Two");
+            return 2;
 		}
 		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
-			return 3;
+			console.log("Three");
+            return 3;
 			
 		}
 		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
@@ -151,7 +154,7 @@
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
 					});
-					if(/*Write*/1==1){
+					if(asdf){
 						chart.print(options);
 					}
 				});
