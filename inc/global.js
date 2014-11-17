@@ -32,7 +32,7 @@
 	function checkName(){
 		console.log("In checkname function");
 		var filePath = $("#fileSelect").value;
-		alert(filePath);
+		console.log("This is the filePath..." + filePath);
 		//var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
 			type: "GET", 

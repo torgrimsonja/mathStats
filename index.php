@@ -74,7 +74,9 @@
                 
             </div>
             <!-- The highcharts graph will render inside this container -->
-            <div id="container" style="width:100%; height: 400px;"></div>
+            <div id="container" style="width:100%; height: 400px;">
+            	
+            </div>
         </div>
 
         
