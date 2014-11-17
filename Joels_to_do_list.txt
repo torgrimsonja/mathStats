@@ -1,9 +1,6 @@
-http://stackoverflow.com/questions/5384962/writing-exif-data-in-php
-http://stackoverflow.com/questions/16177524/populate-a-select-list-from-a-directory-on-my-server-using-php-and-html
-http://php.net/manual/en/function.scandir.php
+To Do: 
 
-Next:
-**Done**Selection List
+1. Fix selection list for loaded files(currently not seeing my example_File and only displaying the default value, yet I'm having no errors.)  <-- Ask T
 
 1.5. Write code for form to load chosen file when submitted??
 	//Need to have form add post array qualifier so that it knows not to check for uploaded files
@@ -11,6 +8,8 @@ Next:
 2. Add Title metadata functionality for when users save files to our system
 
 3. Begin data parsing in php for highchart to be passed through ajax
+
+3.5. After data is parsed with main.php, point to global.js and have it do its magic, then display the graph
 
 4. Make sure that various exporting options are available when graph is displayed for user
 	i.e. Print the graph
