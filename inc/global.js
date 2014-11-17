@@ -2,25 +2,14 @@
 	$(document).on('pageinit', function() {
 		console.log('Ready event fired');
 		//$('#fileSubmit').bind('click', clicked());
-		dothis();
 	});
 	//This function will be used to submit file
-	function dothis(){
-		$("#help").click(function(){
-			alert("Choose your file and graph type. Next click submit and watch as your graph is printed out on screen.");	
-		});
-		$( "#fileSubmit" ).submit(function( event ) {
-			console.log( "Handler for .submit() called." );
-			event.preventDefault();
-			validate();
-		});
-	}
 	function checkIfFile(){
-		console.log("In new function...");
+		console.log("In checkIfFile");
 			var i=0;
 			var fileName = $("#fileSelect");
 			while(i==0){
-				console.log("In loop");
+				console.log("In loop to check if filename is Null");
 				if(fileName != ""){
 					checkName();
 					i++;
@@ -29,9 +18,10 @@
 			}
 	}
 	
+	
 	function checkName(){
 		console.log("In checkname function");
-		var filePath = $("#fileSelect").value;
+		var filePath = $("#fileSelect").val;
 		console.log("This is the filePath..." + filePath);
 		//var fileName = filePath.replace(/^.*[\\\/]/, '');
 		$.ajax({ 
@@ -40,7 +30,7 @@
 			success: function(result){
 				if(result == 'Invalid'){
 					document.getElementById('errorFileName').style.display="inline";
-					document.getElementById('errorFileName').innerHTML = 'File name taken...rename your file and try again.';
+				  document.getElementById('errorFileName').innerHTML = 'File name taken...rename your file and try again.';
 				}
 			}
 		});
@@ -55,7 +45,6 @@
 		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
 			console.log("One");
             return 1;
-			checkName();
 		}
 		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
 			console.log("Two");
@@ -66,7 +55,8 @@
             return 3;
 			
 		}
-		else{											//If no choice is selected, then a error alert is sent and page is reloaded.
+		else{
+			console.log("Nothing");											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
 			dothis();
 		}

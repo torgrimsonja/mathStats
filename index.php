@@ -68,7 +68,7 @@
                         </fieldset>
                     </div>
                
-                    <input type="submit" data-role="button" value="submit" id="fileSubmit">  
+                    <input type="submit" data-role="button" value="submit" onClick="validate()" id="fileSubmit">  
             	 	 
                 </form>
                 
