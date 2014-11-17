@@ -27,7 +27,7 @@
 			 }
 		 }else{
 			//Deal with non-csv files
-			echo "Invalid file, please try again... <script type='text/javascipt'>console.</script>";
+			echo "Invalid file, please try again... <script type='text/javascipt'>console.log('Invalid File Upload in php');</script>";
 		 }
 	
 	//Set up variables and whatnot to pass to JS
@@ -36,6 +36,9 @@
 		
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
-		echo $data;
+		if($_GET['action'] == "printGraph"){
+			exit();
+			echo $data;
+		}
 	
 ?>

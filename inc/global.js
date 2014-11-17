@@ -105,8 +105,8 @@
 		console.log();
 		//Split the rows
 		var dataRows = data.split("\n");
-		//Iterate over the lines and add categories or series
-		$.each(lines, function(lineNum, line){
+		//Iterate over the lines and add categories or series 
+		$.each(dataRows, function(lineNum, line){
 			var items = line.split(',');	
 			//header line contains categories
 			if(lineNum == 0){
@@ -137,7 +137,7 @@
 	//Run this code once the csv file has been submitted and a chart type chosen
 	$.ajax({ 
 			type: "POST", 
-			url: "main.php",		//Need to add the correct url
+			url: "inc/main.php",		//Need to add the correct url
 			dataType: "text", 
 			success: function(data){
 				processData(data);
@@ -151,7 +151,9 @@
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
 					});
-					chart.print(options);
+					if(/*Write*/1==1){
+						chart.print(options);
+					}
 				});
 	}
 	else if(validate() == 2){
