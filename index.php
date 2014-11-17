@@ -32,7 +32,7 @@
             </div>
             	<!-- Form that will allow uses to upload file and choose graph type -->
                 <!-- File is sent to serverSide.php to be saved and processed -->
-                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="?action=printGraph" enctype="multipart/form-data" method="POST">
+                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="main.php" enctype="multipart/form-data" method="POST">
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
