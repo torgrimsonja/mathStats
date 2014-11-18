@@ -3,6 +3,8 @@
 		console.log('Ready event fired');
 		//$('#fileSubmit').bind('click', clicked());
 	});
+	
+	//Page Level Functions
 	//This function will be used to submit file
 	function checkIfFile(){
 		console.log("In checkIfFile");
@@ -17,7 +19,6 @@
 				
 			}
 	}
-	
 	
 	function checkName(){
 		console.log("In checkname function");
@@ -61,8 +62,47 @@
 			dothis();
 		}
 	}
+	
+	function processData(data){
+		console.log("Inside processData function");
+		//Split the rows
+		var dataRows = data.split("\n");
+		//Iterate over the lines and add categories or series 
+		$.each(dataRows, function(lineNum, line){
+			var items = line.split(',');	
+			//header line contains categories
+			if(lineNum == 0){
+				$.each(items, function(itemNum, value){
+					if(itemNum > 0){
+						options.xAxis.categories.push(value);
+					}
+				});
+			}else{
+				//The rest of the lines contain data with their name in the first position
+				var series = {
+						data: []
+				};
+				$.each(items, function(itemNum, value){
+						if(itemNum == 0){
+							series.name = value;
+						}else{
+							series.data.push(parseFloat(value));	
+						}
+				});
+				options.series.push(series);
+			}
+		});
+		//Set the code for the chart to a variable
+		var chart = new Highcharts.Chart(options);
+		if($("#container").visible){
+			console.log("Saw container as visible");
+		   $("#container").hide();
+		}
+	}	
 
-	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
+	//Start code for highcharts
+	//This may need to by moved to an external file to prevent it from initializing the chart on startup.
+	//Define necessary variables for chart options that are static
 	var dataLines = data.split("\n");
 	var titleName = dataLines[0];
 	var yAxisTitle = "Temperature";
@@ -93,45 +133,13 @@
 					name:"Fahrenheit",
 					data:[]
 				}]
-	};
-	function processData(data){
-		console.log();
-		//Split the rows
-		var dataRows = data.split("\n");
-		//Iterate over the lines and add categories or series 
-		$.each(dataRows, function(lineNum, line){
-			var items = line.split(',');	
-			//header line contains categories
-			if(lineNum == 0){
-				$.each(items, function(itemNum, value){
-					if(itemNum > 0){
-						options.xAxis.categories.push(value);
-					}
-				});
-			}else{
-				//The rest of the lines contain data with their name in the first position
-				var series = {
-						data: []
-				};
-				$.each(items, function(itemNum, value){
-						if(itemNum == 0){
-							series.name = value;
-						}else{
-							series.data.push(parseFloat(value));	
-						}
-				});
-				options.series.push(series);
-			}
-		});
-		//Set the code for the chart to a variable
-		var chart = new Highcharts.Chart(options);
-	}	
-	//Create chart
-	//Run this code once the csv file has been submitted and a chart type chosen
+	    };
+		
+	//Ajax call to php fetching data that has already been parsed in php
 	$.ajax({ 
-			type: "POST", 
-			url: "inc/main.php",		//Need to add the correct url
-			dataType: "text", 
+			type: "POST",
+			url: "inc/main.php", //This path to the php has been giving me 404 errors
+			dataType: "text",
 			success: function(data){
 				processData(data);
 			}
