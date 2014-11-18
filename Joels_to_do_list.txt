@@ -1,11 +1,6 @@
-http://stackoverflow.com/questions/5384962/writing-exif-data-in-php
-http://stackoverflow.com/questions/16177524/populate-a-select-list-from-a-directory-on-my-server-using-php-and-html
-http://php.net/manual/en/function.scandir.php
+http://jsfiddle.net/348sh/3/
 
-Next:
-**Done**Selection List
-
-1.5. Write code for form to load chosen file when submitted??
+1. Write code for form to load chosen file when submitted??
 	//Need to have form add post array qualifier so that it knows not to check for uploaded files
 
 2. Add Title metadata functionality for when users save files to our system
