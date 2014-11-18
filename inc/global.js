@@ -136,8 +136,6 @@
 				processData(data);
 			}
 		});
-			$('#container').highcharts({
-   	 	});
 	if(validate() == 1){
 		var chartType = 'pie';
 		$(function(){						
