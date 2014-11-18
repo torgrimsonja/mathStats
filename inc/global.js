@@ -63,8 +63,8 @@
 	}
 
 	//Title and yAxis title still need to be defined!!!!!!!!!!!!!!!!!!!!
-	var titleName = 'asdf'/*Date uploaded*/;
-	var title = 'asdf';
+	var dataLines = data.split("\n");
+	var titleName = dataLines[0];
 	var yAxisTitle = "Temperature";
 
 	//Define initial skeleton for chart
@@ -144,9 +144,6 @@
 					$('#container').highcharts({
 						//Map the generated chart to the container div for display
 					});
-					if(asdf){
-						chart.print(options);
-					}
 				});
 	}
 	else if(validate() == 2){
