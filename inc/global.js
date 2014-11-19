@@ -8,27 +8,22 @@
 	//This function will be used to submit file
 	function checkIfFile(){
 		console.log("In checkIfFile");
-			var i=0;
-			var fileName = $("#fileSelect");
-			while(i==0){
-				console.log("In loop to check if filename is Null");
-				if(fileName != ""){
-					checkName();
-					i++;
-				}
-				
+			 fileName = $("#fileSelect").val();
+			if(fileName != ""){
+				checkName(fileName);
 			}
+				
 	}
 	
-	function checkName(){
+	function checkName(file){
 		console.log("In checkname function");
-		var filePath = $("#fileSelect").val;
-		console.log("This is the filePath..." + filePath);
-		//var fileName = filePath.replace(/^.*[\\\/]/, '');
+		console.log("This is the filePath..." + file);
+		var fileName = file.replace('/^.*[\\\/]/', '');
 		$.ajax({ 
 			type: "GET", 
-			url: "../ajax.php?action=checkName&name="+fileName,		
+			url: "inc/ajax.php?action=checkName&name="+fileName,		
 			success: function(result){
+				console.log('Ajax call returned: '+result);
 				if(result == 'Invalid'){
 					document.getElementById('errorFileName').style.display="inline";
 				  document.getElementById('errorFileName').innerHTML = 'File name taken...rename your file and try again.';
