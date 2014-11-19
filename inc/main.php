@@ -42,10 +42,12 @@
 		}
 		//Create array holding each line of text from csv file
 		$fileLines = explode("\n\r", $fileContent);
-		//Create multidimensional array for each cel in the file
-		while($i <= array_count_values($fileLines)){
+		//Create multidimensional array for each cell in the file
+		$i = 0;
+		while($i < array_count_values($fileLines)){
 			//As long as there are still more lines in the file to iterate through...
-			
+			$fileCells = explode(",", $fileLines[i]);
+			// 
 		}
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		if($_GET['action'] == "printGraph"){
