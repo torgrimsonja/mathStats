@@ -5,9 +5,10 @@ http://jsfiddle.net/348sh/3/
 
 2. Add Title metadata functionality for when users save files to our system
 
-3. Begin data parsing in php for highchart to be passed through ajax
+3. Finish data parsing in php for highchart to be passed through ajax
+	-echo at correct location for ajax call
 
 4. Make sure that various exporting options are available when graph is displayed for user
-	i.e. Print the graph
+	i.e. Print the graph (see link JSfiddle above)
 
  *Clean up the filesystem, modularize the php?*
