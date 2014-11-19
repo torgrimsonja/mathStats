@@ -11,7 +11,7 @@
 		 if(array_key_exists($_POST['load'])){
 			//Use chosen file in filesystem for chart generation
 		 	$chosenFile = $uploadPath.$_POST['load'];
-		 	
+		 	//unfinished load functionality
 		 
 		 }else if($_FILES['file']['type'] == "csv"){		
 			//Make sure the file type is csv
@@ -31,10 +31,22 @@
 		 }
 	
 	//Set up variables and whatnot to pass to JS
-		//??parse data??
-		
-		
-		
+		//Parse data
+		//Create a variable with the contents of the csv file
+		if(array_key_exists($_POST['load'])){
+			//Fetch from local filesystem if load option chosen
+			$fileContent = file_get_contents("uploads/".$chosenFile);
+		}else{
+			//For normal upload option
+			$fileContent = file_get_contents($chosenFile);
+		}
+		//Create array holding each line of text from csv file
+		$fileLines = explode("\n\r", $fileContent);
+		//Create multidimensional array for each cel in the file
+		while($i <= array_count_values($fileLines)){
+			//As long as there are still more lines in the file to iterate through...
+			
+		}
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		if($_GET['action'] == "printGraph"){
 			exit();
