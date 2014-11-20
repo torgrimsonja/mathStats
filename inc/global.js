@@ -3,7 +3,7 @@
 		console.log('Ready event fired');
 		//$('#fileSubmit').bind('click', clicked());
 	});
-	
+		
 	//Page Level Functions
 	//This function will be used to submit file
 	function checkIfFile(){
