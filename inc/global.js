@@ -3,7 +3,7 @@
 		console.log('Ready event fired');
 		//$('#fileSubmit').bind('click', clicked());
 	});
-	
+		
 	//Page Level Functions
 	//This function will be used to submit file
 	function checkIfFile(){
@@ -142,10 +142,10 @@
 	if(validate() == 1){
 		var chartType = 'pie';
 		$(function(){						
-					$('#container').highcharts({
-						//Map the generated chart to the container div for display
-					});
-				});
+			$('#container').highcharts({
+				//Map the generated chart to the container div for display
+			});
+		});
 	}
 	else if(validate() == 2){
 		var chartType = 'line';
