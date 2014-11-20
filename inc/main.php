@@ -47,7 +47,8 @@
 		while($i < array_count_values($fileLines)){
 			//As long as there are still more lines in the file to iterate through...
 			$fileCells = explode(",", $fileLines[i]);
-			// 
+			//Put results into console for debugging
+			echo "<script type='text/javascript'>console.log(".$fileCells.")</script>";
 		}
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		if($_GET['action'] == "printGraph"){
