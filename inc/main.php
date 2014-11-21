@@ -52,10 +52,7 @@
 				echo "<script type='text/javascript'>console.log(".$fileCells.")</script>";
 			}
 			//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
-			if($_GET['action'] == "printGraph"){
-				exit();
-				echo $data;
-			}
+			echo $data;
 		}else{
 		 echo "No file detected...";
 		}
