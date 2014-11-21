@@ -55,7 +55,7 @@
 		}else{
 		 echo "No file detected...";
 		}
-		
+		//Make array holding all the values for Celcius and Fahrenheit
 		$k = 0;
 		while($k > array_count_values($fileLines)){
 			$j = 0;
@@ -64,6 +64,8 @@
 				$tempCells += $fileCells[$k][$j];
 			}
 		}
+		//Make arrays for just Celcius and Fahrenheit respectively
+		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
 ?>
