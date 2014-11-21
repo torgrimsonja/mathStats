@@ -47,15 +47,23 @@
 			$i = 0;
 			while($i < array_count_values($fileLines)){
 				//As long as there are still more lines in the file to iterate through...
-				$fileCells = explode(",", $fileLines[i]);
+				$fileCells = array();
+				$fileCells += explode(",", $fileLines[i]);
 				//Put results into console for debugging
 				echo "<script type='text/javascript'>console.log(".$fileCells.")</script>";
 			}
-			//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
-			echo $data;
 		}else{
 		 echo "No file detected...";
 		}
 		
-	
+		$k = 0;
+		while($k > array_count_values($fileLines)){
+			$j = 0;
+			while($j > array_count_values($fileCells[]/* Cells 2 and 4 for each line need to be selected */)){
+				$tempCells = array();
+				$tempCells += $fileCells[$k][$j];
+			}
+		}
+		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
+		echo $data;
 ?>
