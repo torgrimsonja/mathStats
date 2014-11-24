@@ -1,18 +1,18 @@
-<!-- Need to figure out how to run this script once the file has been uploaded in conjunction with the jquery stuff -->
 <?php
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
 	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 	require_once('../common.php');
-	$_FILES['file'];
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
-	
-		 if(array_key_exists($_POST['load'])){
+		
+		 //LOAD option
+		 if(array_key_exists($_GET['action']) && $_GET['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
-		 	$chosenFile = $uploadPath.$_POST['load'];
-		 	//unfinished load functionality
+		 	$chosenFile = $uploadPath.$_GET['action'];
 		 
+		 //UPLOAD option
 		 }else if($_FILES['file']['type'] == "csv"){		
 			//Make sure the file type is csv
 			//Move the file to our file system from the POST array
@@ -33,7 +33,7 @@
 	//Set up variables and whatnot to pass to JS
 		//Parse data
 		//Create a variable with the contents of the csv file
-		if(array_key_exists($_POST['load'])){
+		if(array_key_exists($_GET['action'])){
 			//Fetch from local filesystem if load option chosen
 			$fileContent = file_get_contents("uploads/".$chosenFile);
 		}else{
@@ -43,7 +43,7 @@
 		//Create array holding each line of text from csv file
 		$fileLines = explode("\n\r", $fileContent);
 		//Create multidimensional array for each cell in the file
-		if(array_key_exists($_POST[]) || array_key_exists($_FILES['file'])){
+		if((array_key_exists($_GET['action']) && $_GET['action'] == 'load') || array_key_exists($_FILES['file'])){
 			$i = 0;
 			while($i < array_count_values($fileLines)){
 				//As long as there are still more lines in the file to iterate through...
@@ -59,7 +59,7 @@
 		$k = 0;
 		while($k > array_count_values($fileLines)){
 			$j = 0;
-			while($j > array_count_values($fileCells[]/* Cells 2 and 4 for each line need to be selected */)){
+			while($j > array_count_values($fileCells[]/* Cells 2 and 4 for each line need to be selected*/)){
 				$tempCells = array();
 				$tempCells += $fileCells[$k][$j];
 			}
@@ -68,4 +68,5 @@
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
+		
 ?>
