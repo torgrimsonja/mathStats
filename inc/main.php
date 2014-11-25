@@ -1,22 +1,25 @@
 <?php
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
 	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	ini_set('display_errors', 'On');
 	require_once('../common.php');
 	
 	//Get file from html form upload
 	$uploadPath = "../uploads/";
 		
 		 //LOAD option
-		 if(array_key_exists($_GET['action']) && $_GET['action'] == 'load'){
+		 if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
-		 	$chosenFile = $uploadPath.$_GET['action'];
+		 	$chosenFile = $uploadPath.$_GET['fileName'];
+			if(file_exists($uploadPath.$_GET['fileName'])){
+				echo "The file you chose to load DOES exist.";
+			}
 		 
 		 //UPLOAD option
-		 }else if($_FILES['file']['type'] == "csv"){		
+		 }else if($_FILES['file']['type'] == "csv"){
 			//Make sure the file type is csv
 			//Move the file to our file system from the POST array
-			move_uploaded_file($_FILES["file"]["tmp_name"], "mathStats/uploads");
+			move_uploaded_file($_FILES["file"]["tmp_name"], /* I removed mathStats from the filePath here */"uploads");
 			echo "Uploading: " . $_FILES['file']['name'] . "<br />";
 			 //Check that it is in the uploads folder
 			 if(file_exists($uploadPath . $_FILES["file"]["name"])){
@@ -64,7 +67,7 @@
 				$tempCells += $fileCells[$k][$j];
 			}
 		}
-		//Make arrays for just Celcius and Fahrenheit respectively
+		//Make arrays for Celcius and Fahrenheit respectively
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
