@@ -178,4 +178,12 @@
             chart.exportChart({type: 'image/svg+xml', filename: 'my-svg'}, {subtitle: {text:''}});
         }
 	}
-	$('buttonExport').click(Export());
+	$('#buttonExport').click(Export());
+	
+	//Print Module Code
+	function Print(){
+		chart.setTitle(null, { text: ' ' });
+        chart.print();
+        chart.setTitle(null, { text: 'Click and drag in the plot area to zoom in' });
+	}
+	$('#buttonPrint').click(Print());
