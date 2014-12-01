@@ -36,7 +36,7 @@
 	//Set up variables and whatnot to pass to JS
 		//Parse data
 		//Create a variable with the contents of the csv file
-		if(array_key_exists($_GET['action'])){
+		if(array_key_exists('load', $_POST['action'])){
 			//Fetch from local filesystem if load option chosen
 			$fileContent = file_get_contents("uploads/".$chosenFile);
 		}else{
@@ -46,7 +46,7 @@
 		//Create array holding each line of text from csv file
 		$fileLines = explode("\n\r", $fileContent);
 		//Create multidimensional array for each cell in the file
-		if((array_key_exists($_GET['action']) && $_GET['action'] == 'load') || array_key_exists($_FILES['file'])){
+		if(array_key_exists('load', $_POST['action']) || array_key_exists($_FILES['file'])){
 			$i = 0;
 			while($i < array_count_values($fileLines)){
 				//As long as there are still more lines in the file to iterate through...
