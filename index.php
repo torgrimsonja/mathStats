@@ -52,6 +52,7 @@
                     	<!-- Input php selection list generation here -->
                     </select>
                     <select id="ExportOption">
+                    	<option value="default" selected="selected">Export Option</option>
 						<option value="PNG">PNG Image</option>
   						<option value="JPEG">JPEG Image</option>
   						<option value="PDF">PDF Document</option>
