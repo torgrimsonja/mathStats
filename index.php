@@ -6,6 +6,7 @@
         <title>Input File</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
         <!--
         	<script type="text/javascript" src="inc/jquery/jquery-2.1.1.min.js"></script>
     		<script type="text/javascript" src="inc/jquery/jquery.mobile-1.4.4.min.js"></script>
@@ -50,6 +51,13 @@
 						?>
                     	<!-- Input php selection list generation here -->
                     </select>
+                    <select id="ExportOption">
+						<option value="PNG">PNG Image</option>
+  						<option value="JPEG">JPEG Image</option>
+  						<option value="PDF">PDF Document</option>
+  						<option value="SVG">SVG Vector Image</option>
+					</select>
+                    <button id="buttonExport">Export chart</button><button id="buttonPrint">Print chart</button>
                     <div class="ui-field-contain">
                     	<fieldset data-role="controlgroup">
                         	
