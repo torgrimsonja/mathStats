@@ -10,8 +10,8 @@
 		 //LOAD option
 		 if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
-		 	$chosenFile = $uploadPath.$_GET['fileName'];
-			if(file_exists($uploadPath.$_GET['fileName'])){
+		 	$chosenFile = $uploadPath.$_POST['fileName'];
+			if(file_exists($uploadPath.$_POST['fileName'])){
 				echo "The file you chose to load DOES exist.";
 			}
 		 
