@@ -33,7 +33,7 @@
             </div>
             	<!-- Form that will allow uses to upload file and choose graph type -->
                 <!-- File is sent to serverSide.php to be saved and processed -->
-                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="inc/main.php?action='load'&fileName='bob.csv'" enctype="multipart/form-data" method="GET">
+                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="main.php?action='load'&fileName='bob.csv'" enctype="multipart/form-data" method="GET">
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
@@ -43,8 +43,9 @@
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                         <?php
 						//Generate options for selection list based on previously saved files
-						   $dir = "/uploads";
-						   $files = scandir($dir);
+						   $dir = 'uploads';
+						   $files = scandir($dir, 1);
+	
 						   foreach($files as $fileName/* File in directory */){
 							echo "<option name='".$fileName."' value='load_".$fileName."'>".$fileName."</options>";
 						   }

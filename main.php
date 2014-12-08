@@ -1,15 +1,16 @@
 <?php
+
 	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
-	require_once('../common.php');
+	require_once('common.php');
 	
 	//Get file from html form upload
-	$uploadPath = "../uploads/";
-		
+	$uploadPath = "uploads/";
 		 //LOAD option
 		 if(array_key_exists('action', $_GET) && $_GET['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
+
 		 	$chosenFile = $uploadPath.$_GET['fileName'];
 			if(file_exists($uploadPath.$_GET['fileName'])){
 				echo "The file you chose to load DOES exist.";
@@ -60,16 +61,16 @@
 		}
 		//Make array holding all the values for Celcius and Fahrenheit
 		$k = 0;
-		while($k > array_count_values($fileLines)){
+		while($k > count($fileLines)){
 			$j = 0;
-			while($j > array_count_values($fileCells[]/* Cells 2 and 4 for each line need to be selected*/)){
+			while($j > count($fileCells/* Cells 2 and 4 for each line need to be selected*/)){
 				$tempCells = array();
 				$tempCells += $fileCells[$k][$j];
+				$j++;
 			}
+			$k++;
 		}
 		//Make arrays for Celcius and Fahrenheit respectively
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
-		
-?>
