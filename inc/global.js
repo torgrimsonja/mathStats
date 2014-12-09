@@ -153,19 +153,19 @@
         var ExportAs = e.options[e.selectedIndex].value;
         if(ExportAs == 'PNG')
         {
-            chart.exportChart({type: 'image/png', filename: 'my-png'}, {subtitle: {text:''}});
+            chart.exportChart({type: 'image/png', filename: titleName}, {subtitle: {text:''}});
         }
         if(ExportAs == 'JPEG')
         {
-            chart.exportChart({type: 'image/jpeg', filename: 'my-jpg'}, {subtitle: {text:''}});
+            chart.exportChart({type: 'image/jpeg', filename: titleName}, {subtitle: {text:''}});
         }
         if(ExportAs == 'PDF')
         {
-            chart.exportChart({type: 'application/pdf', filename: 'my-pdf'}, {subtitle: {text:''}});
+            chart.exportChart({type: 'application/pdf', filename: titleName}, {subtitle: {text:''}});
         }
         if(ExportAs == 'SVG')
         {
-            chart.exportChart({type: 'image/svg+xml', filename: 'my-svg'}, {subtitle: {text:''}});
+            chart.exportChart({type: 'image/svg+xml', filename: titleName}, {subtitle: {text:''}});
         }
 	}
 	$('#buttonExport').click(Export());
