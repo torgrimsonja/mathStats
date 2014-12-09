@@ -5,3 +5,8 @@
 		header("Location:".$path);	
 		exit();
 	}
+
+	//Escape html entities to prevent hacks
+	function escape_html($value){
+		return htmlentities($value, ENT_QUOTES, 'utf-8');
+	}

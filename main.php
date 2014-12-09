@@ -7,12 +7,16 @@
 	
 	//Get file from html form upload
 	$uploadPath = "uploads/";
+	//Escape uploaded files for security
+	$postFile = escape_html($_POST['action'], ENT_QUOTES, 'utf-8');
+	
+	//Start Load/upload processes
 		 //LOAD option
-		 if(array_key_exists('action', $_GET) && $_GET['action'] == 'load'){
+		 if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
 			//Use chosen file in filesystem for chart generation
 
-		 	$chosenFile = $uploadPath.$_GET['fileName'];
-			if(file_exists($uploadPath.$_GET['fileName'])){
+		 	$chosenFile = $uploadPath.$_POST['fileName'];
+			if(file_exists($uploadPath.$_POST['fileName'])){
 				echo "The file you chose to load DOES exist.";
 			}
 		 
@@ -37,7 +41,7 @@
 	//Set up variables and whatnot to pass to JS
 		//Parse data
 		//Create a variable with the contents of the csv file
-		if(array_key_exists('action', $_GET) && $_GET['action'] == 'load'){
+		if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
 			//Fetch from local filesystem if load option chosen
 			$fileContent = file_get_contents("uploads/".$chosenFile);
 		}else{
@@ -47,7 +51,7 @@
 		//Create array holding each line of text from csv file
 		$fileLines = explode("\n\r", $fileContent);
 		//Create multidimensional array for each cell in the file
-		if((array_key_exists('action', $_GET) && $_GET['action'] == 'load') || array_key_exists($_FILES['file'])){
+		if((array_key_exists('action', $_POST) && $_POST['action'] == 'load') || array_key_exists($_FILES['file'])){
 			$i = 0;
 			while($i < array_count_values($fileLines)){
 				//As long as there are still more lines in the file to iterate through...
