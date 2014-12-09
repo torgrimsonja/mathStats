@@ -3,7 +3,6 @@
 		console.log('Ready event fired');
 		//$('#fileSubmit').bind('click', clicked());
 	});
-		
 	//Page Level Functions
 	//This function will be used to submit file
 	function checkIfFile(){
@@ -12,9 +11,7 @@
 			if(fileName != ""){
 				checkName(fileName);
 			}
-				
 	}
-	
 	function checkName(file){
 		console.log("In checkname function");
 		console.log("This is the filePath..." + file);
@@ -49,7 +46,6 @@
 		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
 			console.log("Three");
             return 3;
-			
 		}
 		else{
 			console.log("Nothing");											//If no choice is selected, then a error alert is sent and page is reloaded.
@@ -57,7 +53,6 @@
 			dothis();
 		}
 	}
-	
 	function processData(data){
 		console.log("Inside processData function");
 		//Split the rows
@@ -94,14 +89,12 @@
 		   $("#container").hide();
 		}
 	}	
-
 	//Start code for highcharts
 	//This may need to by moved to an external file to prevent it from initializing the chart on startup.
 	//Define necessary variables for chart options that are static
 	var dataLines = data.split("\n");
 	var titleName = dataLines[0];
 	var yAxisTitle = "Temperature";
-
 	//Define initial skeleton for chart
 	var options = {
 		chart:{
@@ -129,11 +122,10 @@
 					data:[]
 				}]
 	    };
-		
 	//Ajax call to php fetching data that has already been parsed in php
 	$.ajax({ 
 			type: "POST",
-			url: "inc/main.php", //This path to the php has been giving me 404 errors
+			url: "inc/main.php",
 			dataType: "text",
 			success: function(data){
 				processData(data);
@@ -155,12 +147,10 @@
 		var chartType = 'bar';
 		
 	}
-	
 	//Export Module Code
 	function Export(){
 		var e = document.getElementById("ExportOption");
-        var ExportAs = e.options[e.selectedIndex].value;   
-        
+        var ExportAs = e.options[e.selectedIndex].value;
         if(ExportAs == 'PNG')
         {
             chart.exportChart({type: 'image/png', filename: 'my-png'}, {subtitle: {text:''}});
@@ -179,7 +169,6 @@
         }
 	}
 	$('#buttonExport').click(Export());
-	
 	//Print Module Code
 	function Print(){
 		chart.setTitle(null, { text: ' ' });
