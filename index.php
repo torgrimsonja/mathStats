@@ -37,7 +37,7 @@
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
-                    <input id="fileSelect" data-role="button" type="file" name="file" onChange="checkIfFile()" style="width: 50%;">
+                    <input id="fileSelect" data-role="button"  date-inline="true" type="file" name="file" onChange="checkIfFile()">
                     <select id="loadFile" data-role="button" type="file" name="file">
                     	<!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
