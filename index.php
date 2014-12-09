@@ -45,9 +45,14 @@
 						//Generate options for selection list based on previously saved files
 						   $dir = 'uploads';
 						   $files = scandir($dir, 1);
-	
+						   $j = 0;
 						   foreach($files as $fileName/* File in directory */){
-							echo "<option name='".$fileName."' value='load_".$fileName."'>".$fileName."</options>";
+								if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
+									echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script>";
+								}else{
+									echo "<option name='".$fileName."' value='load_".$fileName."'>".$fileName."</options>";
+								}
+								$j++;
 						   }
 						?>
                     	<!-- Input php selection list generation here -->
