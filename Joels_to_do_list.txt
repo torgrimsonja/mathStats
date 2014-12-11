@@ -1,14 +1,23 @@
+Exporting Stuff
+---------------
 http://jsfiddle.net/348sh/3/
 
-1. Write code for form to load chosen file when submitted??
-	//Need to have form add post array qualifier so that it knows not to check for uploaded files
 
-2. Add Title metadata functionality for when users save files to our system
+Minor To Do List
+----------------
+1. Code post array qualifier so php knows not to check for uploaded files when a loaded file is chosen
 
 3. Finish data parsing in php for highchart to be passed through ajax
-	-echo at correct location for ajax call
-
-4. Make sure that various exporting options are available when graph is displayed for user
-	i.e. Print the graph (see link JSfiddle above)
+	-echo at correct location and in correct syntax with date, time, and temperature data for ajax call
 
  *Clean up the filesystem, modularize the php?*
+
+--------------------------------
+Chronological Ordering of Website
+	       ----
+1. Run Index and Load Form for User Input
+2. On Form Submit, run main.php and echo necessary data for ajax
+3. Once the data has been echoed, run a separate html page for just displaying the graph and export options, using data from php that can be seen by ajax
+
+*Possible Problems:*
+Echoed data no longer being visible once 2nd html page and global runs
