@@ -21,7 +21,7 @@
     </head>
     
     <body>
-    	<div data-role="page" id="index">
+    	<div data-role="page" id="index" style="width: 100%;">
         	<script type="text/javascript">
 			 	console.log('index loaded');
 			</script>
@@ -33,11 +33,11 @@
             </div>
             	<!-- Form that will allow uses to upload file and choose graph type -->
                 <!-- File is sent to serverSide.php to be saved and processed -->
-                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="main.php?action='load'&fileName='bob.csv'" enctype="multipart/form-data" method="GET">
+                <form id="graphChoice" name="fileInput" onSubmit="validate()" action="main.php" enctype="multipart/form-data" method="POST">
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
-                    <input id="fileSelect" data-role="button"  data-inline="true" type="file" name="file" onChange="checkIfFile()">
+                    <input id="fileSelect" type="file" name="file" onChange="checkIfFile()">
                     <select id="loadFile" data-role="button" type="file" name="file">
                     	<!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
@@ -64,7 +64,8 @@
   						<option value="PDF">PDF Document</option>
   						<option value="SVG">SVG Vector Image</option>
 					</select>
-                    <button id="buttonExport">Export chart</button><button id="buttonPrint">Print chart</button>
+                    <button id="buttonPrint" data-inline="true" style="display: inline-block;">Print chart</button>
+                    <button id="buttonExport" data-inline="true" style="display: inline-block;">Export Chart</button>
                     <div class="ui-field-contain">
                     	<fieldset data-role="controlgroup">
                         	
@@ -92,6 +93,8 @@
             <div id="container" style="width:100%; height: 400px;">
             	
             </div>
+            
+            
         </div>
 
         
