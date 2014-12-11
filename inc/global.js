@@ -55,6 +55,10 @@
 	}
 	function processData(data){
 		console.log("Inside processData function");
+		//Select proper items for highcharts options that are echoed by php and passed via ajax
+		//Need temperature 
+		
+		/*  This code is no longer needed because parsing is being done by php
 		//Split the rows
 		var dataRows = data.split("\n");
 		//Iterate over the lines and add categories or series 
@@ -81,13 +85,9 @@
 				});
 				options.series.push(series);
 			}
-		});
+		}); */
 		//Set the code for the chart to a variable
 		var chart = new Highcharts.Chart(options);
-		if($("#container").visible){
-			console.log("Saw container as visible");
-		   $("#container").hide();
-		}
 	}	
 	//Start code for highcharts
 	//This may need to by moved to an external file to prevent it from initializing the chart on startup.
