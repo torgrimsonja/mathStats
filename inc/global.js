@@ -50,7 +50,7 @@
 		else{
 			console.log("Nothing");											//If no choice is selected, then a error alert is sent and page is reloaded.
 			alert('You need to choose a graph...');	
-			dothis();
+			window.refresh();
 		}
 	}
 	function processData(data){

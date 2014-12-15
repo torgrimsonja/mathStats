@@ -37,8 +37,8 @@
                 	<!-- Restrict file uploads that will fail -->
                 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                     <!-- Name of input element for upload determines name in the $_FILES array -->
-                    <input id="fileSelect" type="file" name="file" onChange="checkIfFile()">
-                    <select id="loadFile" data-role="button" type="file" name="file">
+                    <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" >
+                    <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false">
                     	<!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                   		<option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                         <?php
@@ -57,15 +57,17 @@
 						?>
                     	<!-- Input php selection list generation here -->
                     </select>
-                    <select id="ExportOption">
+                    <select id="ExportOption" data-native-menu="false">
                     	<option value="default" selected="selected">Export Option</option>
 						<option value="PNG">PNG Image</option>
   						<option value="JPEG">JPEG Image</option>
   						<option value="PDF">PDF Document</option>
   						<option value="SVG">SVG Vector Image</option>
 					</select>
-                    <button id="buttonPrint" data-inline="true" style="display: inline-block;">Print chart</button>
-                    <button id="buttonExport" data-inline="true" style="display: inline-block;">Export Chart</button>
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="buttonPrint" data-role="button">Print chart</button></div>
+                        <div class="ui-block-b"><button id="buttonExport" data-role="button">Export Chart</button></div>
+                    </fieldset>
                     <div class="ui-field-contain">
                     	<fieldset data-role="controlgroup">
                         	
