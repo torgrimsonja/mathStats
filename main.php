@@ -69,14 +69,28 @@
 		while($k > count($fileLines)){
 			$j = 0;
 			while($j > count($fileCells/* Cells 2 and 4 for each line need to be selected*/)){
-				$tempCells = array();
-				$tempCells += $fileCells[$k][$j];
+				$date = array();
+				$time = array();
+				$celcius = array();
+				$fahrenheit = array();
+				if($j == 0){
+					$date += $fileCells[$k][$j];
+				}else if($j == 1){
+					$time += $fileCells[$k][$j];
+				}else if($j == 2){
+					$celcius += $fileCells[$k][$j];
+				}else if($j == 3){
+					$fahrenheit += $fileCells[$k][$j];
+				}
 				$j++;
 			}
 			$k++;
 		}
 		
-		//Make arrays for Celcius and Fahrenheit respectively
+		//Set up format for data array to be echoed for final ajax call
+		$data = array();
+		$data = $date + $time + $celcius + $fahrenheit;
+		echo "<script type='text/javascript'>console.log('The $data is <br />'".$data.");</script>";
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
