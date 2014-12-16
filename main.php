@@ -17,7 +17,7 @@
 
 		 	$chosenFile = $uploadPath.$_POST['fileName'];
 			if(file_exists($uploadPath.$_POST['fileName'])){
-				echo "The file you chose to load DOES exist.";
+				echo "<script type='text/javascript'>alert('The file you chose to load DOES exist.');</script>";
 			}
 		 
 		 //UPLOAD option
@@ -25,7 +25,7 @@
 			//Make sure the file type is csv
 			//Move the file to our file system from the POST array
 			move_uploaded_file($_FILES["file"]["tmp_name"], /* I removed mathStats from the filePath here */"uploads");
-			echo "Uploading: " . $_FILES['file']['name'] . "<br />";
+			echo "<script type='text/javascript'>alert('Uploading: " . $_FILES['file']['name'] . "');</script><br />";
 			 //Check that it is in the uploads folder
 			 if(file_exists($uploadPath . $_FILES["file"]["name"])){
 				 echo "Upload successful.";
@@ -69,14 +69,28 @@
 		while($k > count($fileLines)){
 			$j = 0;
 			while($j > count($fileCells/* Cells 2 and 4 for each line need to be selected*/)){
-				$tempCells = array();
-				$tempCells += $fileCells[$k][$j];
+				$date = array();
+				$time = array();
+				$celcius = array();
+				$fahrenheit = array();
+				if($j == 0){
+					$date += $fileCells[$k][$j];
+				}else if($j == 1){
+					$time += $fileCells[$k][$j];
+				}else if($j == 2){
+					$celcius += $fileCells[$k][$j];
+				}else if($j == 3){
+					$fahrenheit += $fileCells[$k][$j];
+				}
 				$j++;
 			}
 			$k++;
 		}
 		
-		//Make arrays for Celcius and Fahrenheit respectively
+		//Set up format for data array to be echoed for final ajax call
+		$data = array();
+		$data = $date + $time + $celcius + $fahrenheit;
+		echo "<script type='text/javascript'>console.log('The $data is...'.$data.);</script>";
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
