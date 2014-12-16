@@ -8,6 +8,7 @@
 	//Get file from html form upload
 	$uploadPath = "uploads/";
 	//Escape uploaded files for security
+	$_POST['action'];
 	$postFile = escape_html($_POST['action'], ENT_QUOTES, 'utf-8');
 	
 	//Start Load/upload processes
@@ -64,6 +65,7 @@
 		}else{
 		 echo "No file detected...";
 		}
+		
 		//Make array holding all the values for Celcius and Fahrenheit
 		$k = 0;
 		while($k > count($fileLines)){
@@ -89,8 +91,9 @@
 		
 		//Set up format for data array to be echoed for final ajax call
 		$data = array();
-		$data = $date + $time + $celcius + $fahrenheit;
-		echo "<script type='text/javascript'>console.log('The $data is...'.$data.);</script>";
+		$data = $date . $time . $celcius . $fahrenheit;
+		echo "<script type='text/javascript'>console.log('The data is...');</script>";
+		print_r($date);
 		
 		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
 		echo $data;
