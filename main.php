@@ -1,25 +1,33 @@
 <?php
-
-	//The purpose of this file is to allow the MathStats App to save CSV files so that charts may be loaded for reuse at a later time
+//Main PHP Page for the mathStats website
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
 	require_once('common.php');
 	
-	//Get file from html form upload
+//Process Form Submit
 	$uploadPath = "uploads/";
+	
+	//Deal with Charttype and Radio Buttons
+	//Create a variable with the selected value
+	$radio = $_POST['chartType'];
+	//Echo first line of Ajax for chartType
+	if($radio == 'pie'){
+		echo 1 . "<br />";
+	}else if($radio == 'line'){
+		echo 2 . "<br />";
+	}else if($radio == 'bar'){
+		echo 3 . "<br />";
+	}
+
 	//Escape uploaded files for security
-	//Define POST tag for turning on LOAD functionality
-	$_POST['action'];
-	$postFileName = escape_html($_POST['action'], ENT_QUOTES, 'utf-8');
-	
-	
+	$postFileName = escape_html($_POST['load'], ENT_QUOTES, 'utf-8');
+
 	//Start Load/upload processes
 		 //LOAD option
-		 if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
+		 if(array_key_exists('load', $_POST)){
 			//Use chosen file in filesystem for chart generation
-
-		 	$chosenFile = $uploadPath.$_POST['fileName'];
-			if(file_exists($uploadPath.$_POST['fileName'])){
+		 	$chosenFile = $uploadPath.$postFileName;
+			if(file_exists($uploadPath.$postFileName){
 				echo "<script type='text/javascript'>alert('The file you chose to load DOES exist.');</script>";
 			}
 		 
@@ -41,30 +49,35 @@
 			echo "Invalid file, please try again... <script type='text/javascipt'>console.log('Invalid File Upload in php');</script>";
 		 }
 	
-	//Set up variables and whatnot to pass to JS
-		//Parse data
-		//Create a variable with the contents of the csv file
+	//Parse the uploaded or loaded file and then create a variable with the contents of the csv file
+		//Load option parsing
 		if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
-			//Fetch from local filesystem if load option chosen
-			$fileContent = file_get_contents("uploads/".$postFile, true);
+			//Fetch from local filesystem
+			$fileContent = file_get_contents("uploads/".$postFile);
 		}else{
-			//For normal upload option
+		//Upload option parsing
+			//Fetch from uploaded file
 			$fileContent = file_get_contents($chosenFile);
 		}
+
 		//Create array holding each line of text from csv file
-		$fileLines = explode("\n\r", $fileContent);
+		$fileLines = explode("\n", $fileContent);
 		//Create multidimensional array for each cell in the file
+		//If a valid file exists
 		if((array_key_exists('action', $_POST) && $_POST['action'] == 'load') || array_key_exists($_FILES['file'])){
 			$i = 0;
 			while($i < count($fileLines)){
 				//As long as there are still more lines in the file to iterate through...
 				$fileCells = array();
 				$fileCells += explode(",", $fileLines[i]);
-				print_r($fileCells);
 				//Put results into console for debugging
 				echo "<script type='text/javascript'>console.log(".$fileCells.")</script>";
+				//The above code is not seeming to run
 			}
 		}else{
+		//If no valid file exists
+		//This modifier is preventing the necessary variables from being set when not submitting a file
+		//i.e. This is making debugging hard
 		 echo "No file detected...";
 		}
 		
@@ -93,9 +106,20 @@
 		
 		//Set up format for data array to be echoed for final ajax call
 		$data = array();
-		$data = $date . $time . $celcius . $fahrenheit;
-		echo "<script type='text/javascript'>console.log('The data is...');</script>";
-		print_r($date);
+		$data[0] = $date;
+		$data[1] = $time;
+		$data[2] = $celcius;
+		$data[3] = $fahrenheit;
+		//Kill page and print $data array to make sure format is correct before making the ajax call
+		die(print_r($data));
+
+		/*The page should display as follows...
 		
-		//Data is already in the necessary format and now I just need to echo it in order for the AJAX call to get it
+		1    --(Radio button value for chartType)
+		0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100       --(xAxis incrementing values for temperature in both Celcius and Fahrenheit)
+		12/16/14      --(For use in titleName)
+		Need to figure out rest
+		
+		*/
+		//Final Echo for Ajax Call
 		echo $data;

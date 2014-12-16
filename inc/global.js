@@ -4,7 +4,8 @@
 		//$('#fileSubmit').bind('click', clicked());
 	});
 	//Page Level Functions
-	//This function will be used to submit file
+
+	//Make sure the fileName is not null
 	function checkIfFile(){
 		console.log("In checkIfFile");
 			 fileName = $("#fileSelect").val();
@@ -12,6 +13,7 @@
 				checkName(fileName);
 			}
 	}
+	//Prevent multiple files with the same name
 	function checkName(file){
 		console.log("In checkname function");
 		console.log("This is the filePath..." + file);
@@ -28,31 +30,11 @@
 			}
 		});
 	}
-	//This funtion will check to see if a graph type is selected
-	function validate(){
-		console.log('In validate()');
-		var selected = $('#fileSelect').val();
-		var choice1 = $("#choice1");
-		var choice2 = $("#choice2");
-		var choice3 = $("#choice3");
-		if(choice1.is(':checked')){						//If choice one is selected, then an alert is sent and page is reloaded.
-			console.log("One");
-            return 1;
-		}
-		else if(choice2.is(':checked')){				//If choice two is selected, then an alert is sent and page is reloaded.
-			console.log("Two");
-            return 2;
-		}
-		else if(choice3.is(':checked')){				//If choice three is selected, then an alert is sent and page is reloaded.
-			console.log("Three");
-            return 3;
-		}
-		else{
-			console.log("Nothing");											//If no choice is selected, then a error alert is sent and page is reloaded.
-			alert('You need to choose a graph...');	
-			window.refresh();
-		}
-	}
+	
+
+	//Took out validate function as it is now located on chart.js and being completed in php
+
+	//The Process Data Function takes the data from the Ajax call and sets it into variables for use in the highchart
 	function processData(data){
 		console.log("Inside processData function");
 		//Split the rows
@@ -60,7 +42,7 @@
 		//Iterate over the lines and add categories or series 
 		$.each(dataRows, function(lineNum, line){
 			var items = line.split(',');	
-			//second line after radio button stuff contains categories
+			//Second line after radio button stuff contains categories
 			if(lineNum == 1){
 				$.each(items, function(itemNum, value){
 					if(itemNum > 0){

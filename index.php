@@ -48,9 +48,9 @@
                                $j = 0;
                                foreach($files as $fileName/* File in directory */){
                                     if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
-                                        echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script>";
+                                        echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script><br />";
                                     }else{
-                                        echo "<option name='".$fileName."' value='load_".$fileName."'>".$fileName."</options>";
+                                        echo "<option name='load' value='".$fileName."'>".$fileName."</options><br />";
                                     }
                                     $j++;
                                }
@@ -63,14 +63,14 @@
                                 <legend>Choose the type of chart/graph you would like.<br /><br />
                                         <a id="help" style="cursor: pointer;">Help?</a>
                                 </legend>
-                                <input type="radio" name="choice1" id="choice1" class="custom">
-                                <label for="choice1">Pie Chart</label>
+                                <input type="radio" name="chartType" id="pie" class="custom">
+                                <label for="pie">Pie Chart</label>
                          
-                                <input type="radio" name="choice1" id="choice2" class="custom">
-                                <label for="choice2">Line Graph</label>
+                                <input type="radio" name="chartType" id="line" class="custom">
+                                <label for="line">Line Graph</label>
                          
-                                <input type="radio" name="choice1" id="choice3" class="custom">
-                                <label for="choice3">Bar Graph</label>
+                                <input type="radio" name="chartType" id="bar" class="custom">
+                                <label for="bar">Bar Graph</label>
                          
                             </fieldset>
                         </div>
