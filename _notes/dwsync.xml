@@ -9,27 +9,10 @@
 <file name="Joels_to_do_list.txt" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="MFC2F9B.tmp" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="README.md" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130626358434489819" remote="130628082000000000" Dst="1" />
-=======
-<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130626356691022643" remote="130632391200000000" Dst="1" />
->>>>>>> 0208981218f02fc76cde87f80b1f7de0c232ba99
-<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130628082757686944" remote="130628096400000000" Dst="1" />
-<file name="Joels_to_do_list.txt" server="ftp.tfhsbruins.com//mathStats/" local="130609072198978377" remote="130613386200000000" Dst="1" />
-<file name="MFC2F9B.tmp" server="ftp.tfhsbruins.com//mathStats/" local="130598679609713352" remote="130613386200000000" Dst="1" />
-<file name="README.md" server="ftp.tfhsbruins.com//mathStats/" local="130598679609713352" remote="130613386200000000" Dst="1" />
-<<<<<<< HEAD
-<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130631514322578799" remote="130631544600000000" Dst="1" />
-=======
-<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130632384090931083" remote="130632397800000000" Dst="1" />
->>>>>>> 0208981218f02fc76cde87f80b1f7de0c232ba99
-=======
-<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130628077063182441" remote="130632390600000000" Dst="1" />
-<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130632376483386317" remote="130632390600000000" Dst="1" />
-<file name="Joels_to_do_list.txt" server="ftp.tfhsbruins.com//mathStats/" local="130609072198978377" remote="130613386200000000" Dst="1" />
-<file name="MFC2F9B.tmp" server="ftp.tfhsbruins.com//mathStats/" local="130598679609713352" remote="130613386200000000" Dst="1" />
-<file name="README.md" server="ftp.tfhsbruins.com//mathStats/" local="130598679609713352" remote="130613386200000000" Dst="1" />
-<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130632374615898346" remote="130632390600000000" Dst="1" />
->>>>>>> origin/master
+<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130626358434489819" remote="130632407400000000" Dst="1" />
+<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130632401540734940" remote="130632415200000000" Dst="1" />
+<file name="Joels_to_do_list.txt" server="ftp.tfhsbruins.com//mathStats/" local="130631514322578799" remote="130632407400000000" Dst="1" />
+<file name="MFC2F9B.tmp" server="ftp.tfhsbruins.com//mathStats/" local="130596963180041460" remote="130632407400000000" Dst="1" />
+<file name="README.md" server="ftp.tfhsbruins.com//mathStats/" local="130580525541156996" remote="130632407400000000" Dst="1" />
+<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130632385801170046" remote="130632407400000000" Dst="1" />
 </dwsync>
