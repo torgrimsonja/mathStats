@@ -8,8 +8,10 @@
 	//Get file from html form upload
 	$uploadPath = "uploads/";
 	//Escape uploaded files for security
+	//Define POST tag for turning on LOAD functionality
 	$_POST['action'];
-	$postFile = escape_html($_POST['action'], ENT_QUOTES, 'utf-8');
+	$postFileName = escape_html($_POST['action'], ENT_QUOTES, 'utf-8');
+	
 	
 	//Start Load/upload processes
 		 //LOAD option
@@ -44,7 +46,7 @@
 		//Create a variable with the contents of the csv file
 		if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
 			//Fetch from local filesystem if load option chosen
-			$fileContent = file_get_contents("uploads/".$chosenFile);
+			$fileContent = file_get_contents("uploads/".$postFile, true);
 		}else{
 			//For normal upload option
 			$fileContent = file_get_contents($chosenFile);
