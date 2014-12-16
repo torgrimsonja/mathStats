@@ -1,6 +1,7 @@
 Exporting Stuff
 ---------------
 http://jsfiddle.net/348sh/3/
+http://www.homeandlearn.co.uk/php/php4p10.html
 
 
 Minor To Do List
@@ -9,6 +10,8 @@ Minor To Do List
 
 3. Finish data parsing in php for highchart to be passed through ajax
 	-echo at correct location and in correct syntax with date, time, and temperature data for ajax call
+
+4.  Add code to check for selected radio button and make sure to echo the selected number(1,2, or 3 for pie, line, and bar respectively) before echoing anything else, so that it will be the first line printed by main.php and found by the ajax call
 
  *Clean up the filesystem, modularize the php?*
 
