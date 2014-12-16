@@ -55,17 +55,13 @@
 	}
 	function processData(data){
 		console.log("Inside processData function");
-		//Select proper items for highcharts options that are echoed by php and passed via ajax
-		//Need temperature 
-		
-		/*  This code is no longer needed because parsing is being done by php
 		//Split the rows
 		var dataRows = data.split("\n");
 		//Iterate over the lines and add categories or series 
 		$.each(dataRows, function(lineNum, line){
 			var items = line.split(',');	
-			//header line contains categories
-			if(lineNum == 0){
+			//second line after radio button stuff contains categories
+			if(lineNum == 1){
 				$.each(items, function(itemNum, value){
 					if(itemNum > 0){
 						options.xAxis.categories.push(value);
@@ -85,5 +81,5 @@
 				});
 				options.series.push(series);
 			}
-		}); */
+		});
 	}

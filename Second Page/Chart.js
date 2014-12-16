@@ -3,6 +3,16 @@
 //Set the code for the chart to a variable
 var chart = new Highcharts.Chart(options);
 
+//Ajax call to php fetching data that has already been parsed in php
+$.ajax({ 
+		type: "POST",
+		url: "inc/main.php",
+		dataType: "text",
+		success: function(data){
+			processData(data);
+		}
+	});
+
 //Start code for highcharts
 //This may need to by moved to an external file to prevent it from initializing the chart on startup.
 //Define necessary variables for chart options that are static
@@ -38,16 +48,12 @@ var options = {
 			}]
 	};
 
-//Ajax call to php fetching data that has already been parsed in php
-$.ajax({ 
-		type: "POST",
-		url: "inc/main.php",
-		dataType: "text",
-		success: function(data){
-			processData(data);
-		}
-	});
-if(validate() == 1){
+//Chart Type Assignment
+var dataLines = data.split('/n');
+var radioNum = data[0];	
+
+//Chart Type/Display
+if(radioNum == 1){
 	var chartType = 'pie';
 	$(function(){						
 		$('#container').highcharts({
@@ -55,7 +61,7 @@ if(validate() == 1){
 		});
 	});
 }
-else if(validate() == 2){
+else if(radioNum == 2){
 	var chartType = 'line';
 	$(function(){						
 		$('#container').highcharts({
@@ -63,7 +69,7 @@ else if(validate() == 2){
 		});
 	});
 }
-else if(validate() == 3){
+else if(radioNum == 3){
 	var chartType = 'bar';
 	$(function(){						
 		$('#container').highcharts({
