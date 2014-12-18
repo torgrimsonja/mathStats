@@ -40,7 +40,7 @@
                         <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" >
                         <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false">
                             <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
-                            <option id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
+                            <option name="Load" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                             <?php
                             //Generate options for selection list based on previously saved files
                                $dir = 'uploads';
