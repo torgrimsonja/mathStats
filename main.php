@@ -7,8 +7,12 @@
 //Process Form Submit
 	$uploadPath = "uploads/";
 	
+	print_r($_POST);
+	exit('<br />Poo');
+	
 	//Deal with Charttype and Radio Buttons
 	//Create a variable with the selected value
+	/*
 	$radio = $_POST['chartType'];
 	//Echo first line of Ajax for chartType
 	if($radio == 'pie'){
@@ -18,6 +22,7 @@
 	}else if($radio == 'bar'){
 		echo 3 . "<br />";
 	}
+	*/
 
 	//Escape uploaded files for security
 	$postFileName = escape_html($_POST['load'], ENT_QUOTES, 'utf-8');
@@ -27,7 +32,7 @@
 		 if(array_key_exists('load', $_POST)){
 			//Use chosen file in filesystem for chart generation
 		 	$chosenFile = $uploadPath.$postFileName;
-			if(file_exists($uploadPath.$postFileName){
+			if(file_exists($uploadPath.$postFileName)){
 				echo "<script type='text/javascript'>alert('The file you chose to load DOES exist.');</script>";
 			}
 		 

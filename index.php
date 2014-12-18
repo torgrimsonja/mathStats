@@ -33,7 +33,7 @@
                 </div>
                     <!-- Form that will allow uses to upload file and choose graph type -->
                     <!-- File is sent to serverSide.php to be saved and processed -->
-                    <form id="graphChoice" name="fileInput" onSubmit="validate()" action="main.php" enctype="multipart/form-data" method="POST">
+                    <form id="graphChoice" name="fileInput" action="main.php/" enctype="multipart/form-data" method="POST">
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
@@ -48,12 +48,15 @@
                                $j = 0;
                                foreach($files as $fileName/* File in directory */){
                                     if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
-                                        echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script><br />";
+                                        echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script>";
+										echo '<br />';
                                     }else{
-                                        echo "<option name='load' value='".$fileName."'>".$fileName."</options><br />";
+                                        echo "<option name='load' value='".$fileName."'>".$fileName."</options>";
+										echo '<br />';
                                     }
                                     $j++;
-                               }
+                               		
+							   }
                             ?>
                             <!-- Input php selection list generation here -->
                         </select>
