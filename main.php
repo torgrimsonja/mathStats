@@ -1,8 +1,6 @@
 <?php
-	
 	print_r($_POST);
 	die('Poo');
-
 //Main PHP Page for the mathStats website
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
@@ -129,3 +127,4 @@
 		*/
 		//Final Echo for Ajax Call
 		echo $data;
+		

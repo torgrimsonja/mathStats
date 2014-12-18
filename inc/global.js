@@ -65,3 +65,24 @@
 			}
 		});
 	}
+	
+	$('#indexFileSubmit').on('click', function(){
+		//Capture all form element data
+		console.log('indexFileSubmit button clicked');
+		var data = {'loadFile': $('#loadFile').val(),
+					'chartType': $('#chartType').val(),
+					 };
+		//generate ajax request
+		$.ajax({
+		  type: "POST",
+		  url: 'main.php',
+		  data: data,
+		  success: function(result){
+			  //Preload all the crap int he display page elements
+			  
+			  //transition to the display page
+			  $.mobile.changePage( "#display", { transition: "flip"});
+		  },
+		  dataType: dataType
+		});	
+	});

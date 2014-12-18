@@ -33,14 +33,13 @@
                 </div>
                     <!-- Form that will allow uses to upload file and choose graph type -->
                     <!-- File is sent to serverSide.php to be saved and processed -->
-                    <form id="graphChoice" name="fileInput" action="main.php/" enctype="multipart/form-data" method="POST">
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
                         <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" >
                         <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false">
                             <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
-                            <option name="Load" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
+                            <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                             <?php
                             //Generate options for selection list based on previously saved files
                                $dir = 'uploads';
@@ -66,25 +65,46 @@
                                 <legend>Choose the type of chart/graph you would like.<br /><br />
                                         <a id="help" style="cursor: pointer;">Help?</a>
                                 </legend>
-                                <input type="radio" name="chartType" id="pie" class="custom">
+                                <input type="radio" name="chartType" value="pie" class="custom">
                                 <label for="pie">Pie Chart</label>
                          
-                                <input type="radio" name="chartType" id="line" class="custom">
+                                <input type="radio" name="chartType" value="line" class="custom">
                                 <label for="line">Line Graph</label>
                          
-                                <input type="radio" name="chartType" id="bar" class="custom">
+                                <input type="radio" name="chartType" value="bar" class="custom">
                                 <label for="bar">Bar Graph</label>
                          
                             </fieldset>
                         </div>
                    
-                        <input type="submit" data-role="button" value="Submit" id="fileSubmit">  
+                        <button data-role="button" value="Go" id="indexFileSubmit">  
                          
-                    </form>
                     
                 </div>
                 
             
+        </div>
+        <div data-role="page" id="display">
+            <!-- The highcharts graph will render inside this container -->
+            <div id="container" style="width:100%; height: 400px;">
+                   
+            </div>
+            <!-- Below are exporting options -->
+            <fieldset class="ui-grid-a">
+                <!-- Print the Chart -->
+                <div class="ui-block-a"><button id="buttonPrint" data-role="button">Print chart</button></div>
+                <!-- Choose a Way to Save the Chart -->
+                <div class="ui-block-b">
+                    <select id="DownloadOption" data-native-menu="false">
+                        <option value="default" selected="selected">Download As</option>
+                        <option value="PNG">PNG Image</option>
+                        <option value="JPEG">JPEG Image</option>
+                        <option value="PDF">PDF Document</option>
+                        <option value="SVG">SVG Vector Image</option>
+                    </select>
+                    <button id="downloadButton">Download</button>
+                </div>
+            </fieldset>
         </div>
 
         
