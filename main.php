@@ -1,4 +1,8 @@
 <?php
+	
+	print_r($_POST);
+	die('Poo');
+
 //Main PHP Page for the mathStats website
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
@@ -6,9 +10,6 @@
 	
 //Process Form Submit
 	$uploadPath = "uploads/";
-	
-	print_r($_POST);
-	exit('<br />Poo');
 	
 	//Deal with Charttype and Radio Buttons
 	//Create a variable with the selected value
