@@ -66,6 +66,7 @@
 		});
 	}
 	
+	//Ajax button code
 	$('#indexFileSubmit').on('click', function(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
@@ -78,7 +79,9 @@
 		  url: 'main.php',
 		  data: data,
 		  success: function(result){
-			  //Preload all the crap int he display page elements
+			  //Preload all the crap in the display page elements
+			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
+			  
 			  
 			  //transition to the display page
 			  $.mobile.changePage( "#display", { transition: "flip"});
