@@ -59,7 +59,8 @@
                             ?>
                             <!-- Input php selection list generation here -->
                         </select>
-                        <div class="ui-field-contain">
+                        <!-- Radio buttons below currently not rendering -->
+                        <div  class="ui-field-contain">
                             <fieldset data-role="controlgroup">
                                 
                                 <legend>Choose the type of chart/graph you would like.<br /><br />
@@ -77,7 +78,7 @@
                             </fieldset>
                         </div>
                    
-                        <button data-role="button" value="Go" id="indexFileSubmit">  
+                        <button data-role="button" value="Go" id="indexFileSubmit">Submit</button> 
                          
                     
                 </div>

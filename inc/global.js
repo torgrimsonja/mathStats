@@ -58,7 +58,7 @@
 						if(itemNum == 0){
 							series.name = value;
 						}else{
-							series.data.push(parseFloat(value));	
+							series.data.push(parseFloat(value));
 						}
 				});
 				options.series.push(series);
