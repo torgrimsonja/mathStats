@@ -81,7 +81,7 @@
 		  success: function(result){
 			  //Preload all the crap in the display page elements
 			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
-			  
+			  $.mobile.loadpage("#display");
 			  
 			  //transition to the display page
 			  $.mobile.changePage( "#display", { transition: "flip"});
