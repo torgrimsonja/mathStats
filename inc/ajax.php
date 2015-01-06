@@ -15,4 +15,3 @@ if(	array_key_exists('action', $_GET) &&
 	exit();
 }
 
-//Handle loading of previously saved files for chart creation

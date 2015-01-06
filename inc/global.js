@@ -66,14 +66,14 @@
 		});
 	}
 	
-	//Ajax button code
+	//Ajax button and page switching code
 	$('#indexFileSubmit').on('click', function(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
 		var data = {'loadFile': $('#loadFile').val(),
 					'chartType': $('#chartType').val(),
 					 };
-		//generate ajax request
+		//Generate ajax request
 		$.ajax({
 		  type: "POST",
 		  url: 'main.php',
@@ -83,8 +83,9 @@
 			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
 			  $.mobile.loadpage("#display");
 			  
-			  //transition to the display page
+			  //Transition to the display page
 			  $.mobile.changePage( "#display", { transition: "flip"});
+		 	  
 		  },
 		  dataType: dataType
 		});	

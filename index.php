@@ -31,12 +31,12 @@
                 <div data-role="header">
                     <h1>Math Stats</h1>
                 </div>
-                    <!-- Form that will allow uses to upload file and choose graph type -->
-                    <!-- File is sent to serverSide.php to be saved and processed -->
+                    <!-- Form data is now handled via ajax -->
+                    <!-- File is sent to main.php to be saved and processed -->
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
-                        <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" >
+                        <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" />
                         <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false">
                             <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                             <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
@@ -60,27 +60,22 @@
                             <!-- Input php selection list generation here -->
                         </select>
                         <!-- Radio buttons below currently not rendering -->
-                        <div  class="ui-field-contain">
-                            <fieldset data-role="controlgroup">
+                        <fieldset  data-role="controlgroup">
                                 
-                                <legend>Choose the type of chart/graph you would like.<br /><br />
-                                        <a id="help" style="cursor: pointer;">Help?</a>
-                                </legend>
-                                <input type="radio" name="chartType" value="pie" class="custom">
-                                <label for="pie">Pie Chart</label>
+                                Choose the type of chart/graph you would like.
+                                <input type="radio" name="chartType" id="radio-choice-1" value="pie" checked="checked">
+                                <label for="radio-choice-1">Pie Chart</label>
                          
-                                <input type="radio" name="chartType" value="line" class="custom">
-                                <label for="line">Line Graph</label>
+                                <input type="radio" name="chartType" id="radio-choice-2" value="line">
+                                <label for="radio-choice-2">Line Graph</label>
                          
-                                <input type="radio" name="chartType" value="bar" class="custom">
-                                <label for="bar">Bar Graph</label>
+                                <input type="radio" name="chartType" id="radio-choice-3" value="bar">
+                                <label for="radio-choice-3">Bar Graph</label>
                          
-                            </fieldset>
-                        </div>
+
                    
+                        </fieldset>   
                         <button data-role="button" value="Go" id="indexFileSubmit">Submit</button> 
-                         
-                    
                 </div>
                 
             
