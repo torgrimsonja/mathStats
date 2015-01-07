@@ -11,7 +11,6 @@
 	
 	//Deal with Charttype and Radio Buttons
 	//Create a variable with the selected value
-	/*
 	$radio = $_POST['chartType'];
 	//Echo first line of Ajax for chartType
 	if($radio == 'pie'){
@@ -21,7 +20,6 @@
 	}else if($radio == 'bar'){
 		echo 3 . "<br />";
 	}
-	*/
 
 	//Escape uploaded files for security
 	$postFileName = escape_html($_POST['load'], ENT_QUOTES, 'utf-8');

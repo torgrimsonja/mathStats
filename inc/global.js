@@ -76,7 +76,7 @@
 		//Ajax request to switch pages once data is obtained to populate the graph
 		$.ajax({
 		  type: "POST",
-		  url: 'main.php',
+		  url: 'ajax.php',
 		  data: data,
 		  success: function(result){
 			  //Preload all the crap in the display page elements
