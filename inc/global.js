@@ -66,14 +66,14 @@
 		});
 	}
 	
-	//Ajax button and page switching code
+	//Button code
 	$('#indexFileSubmit').on('click', function(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
 		var data = {'loadFile': $('#loadFile').val(),
 					'chartType': $('#chartType').val(),
-					 };
-		//Generate ajax request
+					};
+		//Ajax request to switch pages once data is obtained to populate the graph
 		$.ajax({
 		  type: "POST",
 		  url: 'main.php',
