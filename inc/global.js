@@ -67,7 +67,7 @@
 	}
 	
 	//Button code
-	$('#indexFileSubmit').on('click', function(){
+	$("#indexFileSubmit").bind('click', function buttonPress(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
 		var data = {'loadFile': $('#loadFile').val(),
