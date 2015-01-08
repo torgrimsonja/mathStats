@@ -20,7 +20,7 @@
 		var fileName = file.replace('/^.*[\\\/]/', '');
 		$.ajax({ 
 			type: "GET", 
-			url: "inc/ajax.php?action=checkName&name="+fileName,		
+			url: "ajax.php?action=checkName&name="+fileName,		
 			success: function(result){
 				console.log('Ajax call returned: '+result);
 				if(result == 'Invalid'){
