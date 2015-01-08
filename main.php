@@ -1,6 +1,4 @@
 <?php
-	print_r($_POST);
-	die('Poo');
 //Main PHP Page for the mathStats website
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
@@ -51,6 +49,7 @@
 			echo "Invalid file, please try again... <script type='text/javascipt'>console.log('Invalid File Upload in php');</script>";
 		 }
 	
+	//Old Code- now done by client
 	//Parse the uploaded or loaded file and then create a variable with the contents of the csv file
 		//Load option parsing
 		if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
@@ -83,11 +82,13 @@
 		 echo "No file detected...";
 		}
 		
+		
+		/*
 		//Make array holding all the values for Celcius and Fahrenheit
 		$k = 0;
 		while($k > count($fileLines)){
 			$j = 0;
-			while($j > count($fileCells/* Cells 2 and 4 for each line need to be selected*/)){
+			while($j > count($fileCells--Cells 2 and 4 for each line need to be selected--)){
 				$date = array();
 				$time = array();
 				$celcius = array();
@@ -112,10 +113,8 @@
 		$data[1] = $time;
 		$data[2] = $celcius;
 		$data[3] = $fahrenheit;
-		//Kill page and print $data array to make sure format is correct before making the ajax call
-		die(print_r($data));
 
-		/*The page should display as follows...
+		The page should display as follows...
 		
 		1    --(Radio button value for chartType)
 		0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100       --(xAxis incrementing values for temperature in both Celcius and Fahrenheit)
@@ -123,6 +122,6 @@
 		Need to figure out rest
 		
 		*/
-		//Final Echo for Ajax Call
+		//
 		echo $data;
 		
