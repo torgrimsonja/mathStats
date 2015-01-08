@@ -75,7 +75,7 @@
 
                    
                         </fieldset>   
-                        <button data-role="button" value="Go" id="indexFileSubmit">Submit</button> 
+                        <button data-role="button" value="Go" id="indexFileSubmit">Submit</button>
                 </div>
                 
             

@@ -5,8 +5,13 @@
 <file name="common.php" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="index.php" server="C:/wamp/www/" local="130602155256312039" remote="130602155250000000" Dst="1" />
 <file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130626356691022643" remote="130649674800000000" Dst="1" />
+<<<<<<< HEAD
 <file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130650538605710207" remote="130650552000000000" Dst="1" />
 <file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130652262750534981" remote="130652276400000000" Dst="1" />
+=======
+<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130652273227129871" remote="130652287200000000" Dst="1" />
+<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130634128956689365" remote="130649674800000000" Dst="1" />
+>>>>>>> acbd8ebdfe22c7f1a89051abe3356c1d86533549
 <file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130633237890869020" remote="130649674800000000" Dst="1" />
 <file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130651416373603614" remote="130652272800000000" Dst="1" />
 </dwsync>

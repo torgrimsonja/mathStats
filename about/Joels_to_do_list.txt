@@ -1,26 +1,17 @@
-Exporting Stuff
----------------
+   Exporting Stuff
+-----------------------
 http://jsfiddle.net/348sh/3/
 http://www.homeandlearn.co.uk/php/php4p10.html
 
 
-Minor To Do List
-----------------
-1. Code post array qualifier so php knows not to check for uploaded files when a loaded file is chosen
-
-3. Finish data parsing in php for highchart to be passed through ajax
-	-echo at correct location and in correct syntax with date, time, and temperature data for ajax call
-
-4.  Add code to check for selected radio button and make sure to echo the selected number(1,2, or 3 for pie, line, and bar respectively) before echoing anything else, so that it will be the first line printed by main.php and found by the ajax call
-
- *Clean up the filesystem, modularize the php?*
-
 --------------------------------
-Chronological Ordering of Website
-	       ----
-1. Run Index and Load Form for User Input
-2. On Form Submit, run main.php and echo necessary data for ajax
-3. Once the data has been echoed, run a separate html page for just displaying the graph and export options, using data from php that can be seen by ajax
+      Website Plan
 
-*Possible Problems:*
-Echoed data no longer being visible once 2nd html page and global runs
+1. User inputs file and chooses type
+2. Clicks button
+3. Client creates GLOBAL variable storing name of file and chartType
+4. Page changes to display page
+4. Runs ajax call to store file and getFileData, then echos it as a JSON string for Ajax call
+5. Ajax call success function is passed the JSON string with contents of the file they submitted
+6. Parse and shove returned data into necessary functions for Highcharts
+7. Once data is given to Highcharts, the graph will display in the container div-- VOila!

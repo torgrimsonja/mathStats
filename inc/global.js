@@ -65,9 +65,9 @@
 			}
 		});
 	}
-	
+
 	//Button code
-	$("#indexFileSubmit").bind('click', function buttonPress(){
+	$("#indexFileSubmit").bind("click", function buttonPress(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
 		var data = {'loadFile': $('#loadFile').val(),
@@ -82,7 +82,6 @@
 			  //Preload all the crap in the display page elements
 			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
 			  $.mobile.loadpage("#display");
-			  
 			  //Transition to the display page
 			  $.mobile.changePage( "#display", { transition: "flip"});
 		 	  
