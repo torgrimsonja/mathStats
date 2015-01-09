@@ -5,8 +5,17 @@
 <file name="common.php" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="index.php" server="C:/wamp/www/" local="130602155256312039" remote="130602155250000000" Dst="1" />
 <file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130626356691022643" remote="130649674800000000" Dst="1" />
+<<<<<<< HEAD
 <file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130653114890513865" remote="130653129000000000" Dst="1" />
+=======
+<<<<<<< HEAD
+<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130650538605710207" remote="130650552000000000" Dst="1" />
+<file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130652262750534981" remote="130652276400000000" Dst="1" />
+=======
+<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130652275692688301" remote="130652289600000000" Dst="1" />
+>>>>>>> origin/master
 <file name="main.php" server="ftp.tfhsbruins.com//mathStats/" local="130652274459040301" remote="130652289600000000" Dst="1" />
+>>>>>>> origin/master
 <file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130633237890869020" remote="130649674800000000" Dst="1" />
 <file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130653137664631852" remote="130653151800000000" Dst="1" />
 </dwsync>
