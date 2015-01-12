@@ -33,8 +33,7 @@ function storeFile(){
 function getFileData($filename){
 	$chosenFile = $_FILES['file']['name'];
 	$fileContent = file_get_contents($chosenFile);
-	
 	echo $fileContent;
 }
 
-
+getFileData($filename);
