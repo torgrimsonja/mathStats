@@ -67,25 +67,42 @@
 	}
 
 	//Button code
-	$("#indexFileSubmit").bind("click", function buttonPress(){
+	function poop(){
 		//Capture all form element data
 		console.log('indexFileSubmit button clicked');
 		var data = {'loadFile': $('#loadFile').val(),
 					'chartType': $('#chartType').val(),
-					};
+				    };
 		//Ajax request to switch pages once data is obtained to populate the graph
+		/*
 		$.ajax({
-		  type: "POST",
+		  type: "GET",
 		  url: 'ajax.php',
 		  data: data,
+		  dataType: 'json',
 		  success: function(result){
 			  //Preload all the crap in the display page elements
 			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
+			  console.log('AJAX call for file upload was successfull and returned...'+result);
 			  $.mobile.loadpage("#display");
 			  //Transition to the display page
 			  $.mobile.changePage( "#display", { transition: "flip"});
 		 	  
-		  },
-		  dataType: dataType
+		  } ,
+		  
 		});	
-	});
+		*/
+		$.ajax({ 
+			type: "GET", 
+			url: "ajax.php",
+			dataType:"json",		
+			success: function(result){
+				console.log("Ajax call returned True..."+result);
+				
+			},
+			error: function (error) {
+                  console.log('Ajax call to submit file errored out.');
+				  console.log(error);
+            }
+		});
+	}

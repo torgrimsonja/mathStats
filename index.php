@@ -15,7 +15,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     	<script type="text/javascript" src="inc/global.js"></script>
-        
+        <script type="text/javascript" src="chart.js"></script>
         <!-- <link type="text/css" rel="stylesheet" href="inc/jquery/jquery.mobile-1.4.3.min.css"/> -->
  
     </head>
@@ -75,7 +75,7 @@
 
                    
                         </fieldset>   
-                        <button data-role="button" value="Go" id="indexFileSubmit">Submit</button>
+                        <button data-role="button" value="Go" id="indexFileSubmit" onClick="poop()">Submit</button>
                 </div>
                 
             

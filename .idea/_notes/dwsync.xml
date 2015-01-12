@@ -7,11 +7,11 @@
 <file name="modules.xml" server="C:/wamp/www/" local="130598699864597352" remote="130598699860000000" Dst="1" />
 <file name="vcs.xml" server="C:/wamp/www/" local="130598699864597352" remote="130598699860000000" Dst="1" />
 <file name="workspace.xml" server="C:/wamp/www/" local="130598700202337352" remote="130598700200000000" Dst="1" />
-<file name="encodings.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834320764" remote="130632407400000000" Dst="1" />
-<file name="mathStats.iml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130632407400000000" Dst="1" />
-<file name="misc.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130632407400000000" Dst="1" />
-<file name="modules.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130632407400000000" Dst="1" />
-<file name="vcs.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834632762" remote="130632407400000000" Dst="1" />
-<file name="workspace.xml" server="ftp.tfhsbruins.com//mathStats/" local="130614231918893507" remote="130632407400000000" Dst="1" />
-<file name="deployment.xml" server="ftp.tfhsbruins.com//mathStats/" local="130607331648306923" remote="130632407400000000" Dst="1" />
+<file name="encodings.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834320764" remote="130655727000000000" Dst="1" />
+<file name="mathStats.iml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130655727000000000" Dst="1" />
+<file name="misc.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130655727000000000" Dst="1" />
+<file name="modules.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834476763" remote="130655727000000000" Dst="1" />
+<file name="vcs.xml" server="ftp.tfhsbruins.com//mathStats/" local="130602139834632762" remote="130655727000000000" Dst="1" />
+<file name="workspace.xml" server="ftp.tfhsbruins.com//mathStats/" local="130653112031171536" remote="130655727000000000" Dst="1" />
+<file name="deployment.xml" server="ftp.tfhsbruins.com//mathStats/" local="130607331648306923" remote="130655727000000000" Dst="1" />
 </dwsync>
