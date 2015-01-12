@@ -47,8 +47,7 @@
                                $j = 0;
                                foreach($files as $fileName/* File in directory */){
                                     if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
-                                        echo "<script type='text/javascript'>console.log('Found invalid File in Repetition #".$j."');</script>";
-										echo '<br />';
+										//Don't add a load option
                                     }else{
                                         echo "<option name='load' value='".$fileName."'>".$fileName."</options>";
 										echo '<br />';
