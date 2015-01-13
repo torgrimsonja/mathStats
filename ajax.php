@@ -1,5 +1,6 @@
 <?php
 
+//Currently just echoing 'yeehaw' for debugging ajax call that isnt successful on global.js
 die('yeehaw');
 
 //Handle save file name check
