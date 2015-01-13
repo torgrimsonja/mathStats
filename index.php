@@ -31,6 +31,7 @@
                 <div data-role="header">
                     <h1>Math Stats</h1>
                 </div>
+                	<form id="formFileSubmit" method="get" action="display.php" enctype="multipart/form-data">
                     <!-- Form data is now handled via ajax -->
                     <!-- File is sent to main.php to be saved and processed -->
                         <!-- Restrict file uploads that will fail -->
@@ -74,7 +75,9 @@
 
                    
                         </fieldset>   
-                        <button data-role="button" value="Go" id="indexFileSubmit" onClick="poop()">Submit</button>
+                        <input type="submit"  data-role="button" value="Go" id="indexFileSubmit" onClick="">Submit</button>
+                    </form>
+                 
                 </div>
                 
             

@@ -1,10 +1,16 @@
 // JavaScript Document
-	$(document).on('pageinit', function() {
-		console.log('Ready event fired');
-		//$('#fileSubmit').bind('click', clicked());
+	$(document).on('pageinit', deviceReady);
+	//Global Variables
+	var files;
+	var fileName;
+	var chartType;
+	$(document).bind("mobileinit", function () {
+		$.mobile.ajaxEnabled = false;
 	});
-	//Page Level Functions
-
+	
+	function deviceReady(){
+	}
+	
 	//Make sure the fileName is not null
 	function checkIfFile(){
 		console.log("In checkIfFile");
@@ -66,43 +72,3 @@
 		});
 	}
 
-	//Button code
-	function poop(){
-		//Capture all form element data
-		console.log('indexFileSubmit button clicked');
-		var data = {'loadFile': $('#loadFile').val(),
-					'chartType': $('#chartType').val(),
-				    };
-		//Ajax request to switch pages once data is obtained to populate the graph
-		/*
-		$.ajax({
-		  type: "GET",
-		  url: 'ajax.php',
-		  data: data,
-		  dataType: 'json',
-		  success: function(result){
-			  //Preload all the crap in the display page elements
-			  //http://demos.jquerymobile.com/1.0b2/docs/pages/page-cache.html
-			  console.log('AJAX call for file upload was successfull and returned...'+result);
-			  $.mobile.loadpage("#display");
-			  //Transition to the display page
-			  $.mobile.changePage( "#display", { transition: "flip"});
-		 	  
-		  } ,
-		  
-		});	
-		*/
-		$.ajax({ 
-			type: "GET", 
-			url: "ajax.php",
-			dataType:"json",		
-			success: function(result){
-				console.log("Ajax call returned True..."+result);
-				
-			},
-			error: function (error) {
-                  console.log('Ajax call to submit file errored out.');
-				  console.log(error);
-            }
-		});
-	}
