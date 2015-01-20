@@ -49,79 +49,15 @@
 			echo "Invalid file, please try again... <script type='text/javascipt'>console.log('Invalid File Upload in php');</script>";
 		 }
 	
-	//Old Code- now done by client
-	//Parse the uploaded or loaded file and then create a variable with the contents of the csv file
-		//Load option parsing
-		if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
-			//Fetch from local filesystem
-			$fileContent = file_get_contents("uploads/".$postFile);
-		}else{
-		//Upload option parsing
-			//Fetch from uploaded file
-			$fileContent = file_get_contents($chosenFile);
-		}
-
-		//Create array holding each line of text from csv file
-		$fileLines = explode("\n", $fileContent);
-		//Create multidimensional array for each cell in the file
-		//If a valid file exists
-		if((array_key_exists('action', $_POST) && $_POST['action'] == 'load') || array_key_exists($_FILES['file'])){
-			$i = 0;
-			while($i < count($fileLines)){
-				//As long as there are still more lines in the file to iterate through...
-				$fileCells = array();
-				$fileCells += explode(",", $fileLines[i]);
-				//Put results into console for debugging
-				echo "<script type='text/javascript'>console.log(".$fileCells.")</script>";
-				//The above code is not seeming to run
-			}
-		}else{
-		//If no valid file exists
-		//This modifier is preventing the necessary variables from being set when not submitting a file
-		//i.e. This is making debugging hard
-		 echo "No file detected...";
-		}
+	//Convert File to JSON string and output
+	if(array_key_exists('action', $_POST) && $_POST['action'] == 'load'){
+		//Fetch from local filesystem
+		$fileContent = file_get_contents("uploads/".$postFile);
+	}else{
+		//Fetch from uploaded file
+		$fileContent = file_get_contents($chosenFile);
 		
-		
-		/*
-		//Make array holding all the values for Celcius and Fahrenheit
-		$k = 0;
-		while($k > count($fileLines)){
-			$j = 0;
-			while($j > count($fileCells--Cells 2 and 4 for each line need to be selected--)){
-				$date = array();
-				$time = array();
-				$celcius = array();
-				$fahrenheit = array();
-				if($j == 0){
-					$date += $fileCells[$k][$j];
-				}else if($j == 1){
-					$time += $fileCells[$k][$j];
-				}else if($j == 2){
-					$celcius += $fileCells[$k][$j];
-				}else if($j == 3){
-					$fahrenheit += $fileCells[$k][$j];
-				}
-				$j++;
-			}
-			$k++;
-		}
-		
-		//Set up format for data array to be echoed for final ajax call
-		$data = array();
-		$data[0] = $date;
-		$data[1] = $time;
-		$data[2] = $celcius;
-		$data[3] = $fahrenheit;
-
-		The page should display as follows...
-		
-		1    --(Radio button value for chartType)
-		0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100       --(xAxis incrementing values for temperature in both Celcius and Fahrenheit)
-		12/16/14      --(For use in titleName)
-		Need to figure out rest
-		
-		*/
-		//
-		echo $data;
+	}
+	
+	echo $data;
 		

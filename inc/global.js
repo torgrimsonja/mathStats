@@ -36,9 +36,6 @@
 			}
 		});
 	}
-	
-
-	//Took out validate function as it is now located on chart.js and being completed in php
 
 	//The Process Data Function takes the data from the Ajax call and sets it into variables for use in the highchart
 	function processData(data){

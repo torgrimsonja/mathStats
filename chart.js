@@ -83,7 +83,10 @@ function Print(){
     chart.print();
     chart.setTitle(null, { text: 'Click and drag in the plot area to zoom in' });
 }
-$('#buttonPrint').click(Print());
+$('#buttonPrint').click(function(){
+	console.log('User clicked the Print button');
+	Print();
+});
 
 //This is the code for downloading a chart.
 //Downloading Module Code
@@ -107,4 +110,8 @@ function userDownload(){
         chart.exportChart({type: 'image/svg+xml', filename: titleName}, {subtitle: {text:''}});
     }
 }
-$('#downloadButton').click(userDownload());
+$('#downloadButton').click(function (){
+	console.log('User clicked the Download Button');
+	userDownload()
+
+});

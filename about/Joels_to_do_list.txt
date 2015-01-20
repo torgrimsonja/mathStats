@@ -4,8 +4,8 @@ http://jsfiddle.net/348sh/3/
 http://www.homeandlearn.co.uk/php/php4p10.html
 
 
---------------------------------
       Website Plan
+--------------------------------
 
 1. User inputs file and chooses type
 2. Clicks button
@@ -25,3 +25,50 @@ Line 77
 
 Chart.js
 Line 7
+
+
+
+
+
+Old Code for Parsing in PHP
+---------
+/*
+		//Make array holding all the values for Celcius and Fahrenheit
+		$k = 0;
+		while($k > count($fileLines)){
+			$j = 0;
+			while($j > count($fileCells--Cells 2 and 4 for each line need to be selected--)){
+				$date = array();
+				$time = array();
+				$celcius = array();
+				$fahrenheit = array();
+				if($j == 0){
+					$date += $fileCells[$k][$j];
+				}else if($j == 1){
+					$time += $fileCells[$k][$j];
+				}else if($j == 2){
+					$celcius += $fileCells[$k][$j];
+				}else if($j == 3){
+					$fahrenheit += $fileCells[$k][$j];
+				}
+				$j++;
+			}
+			$k++;
+		}
+		
+		//Set up format for data array to be echoed for final ajax call
+		$data = array();
+		$data[0] = $date;
+		$data[1] = $time;
+		$data[2] = $celcius;
+		$data[3] = $fahrenheit;
+
+		The page should display as follows...
+		
+		1    --(Radio button value for chartType)
+		0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100       --(xAxis incrementing values for temperature in both Celcius and Fahrenheit)
+		12/16/14      --(For use in titleName)
+		Need to figure out rest
+		
+		*/
+		//

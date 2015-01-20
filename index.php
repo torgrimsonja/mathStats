@@ -75,7 +75,7 @@
 
                    
                         </fieldset>   
-                        <input type="submit"  data-role="button" value="Go" id="indexFileSubmit" onClick="">Submit</button>
+                        <input type="submit"  data-role="button" value="Go" id="indexFileSubmit" onClick=""></button>
                     </form>
                  
                 </div>
