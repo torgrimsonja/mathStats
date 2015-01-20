@@ -15,3 +15,13 @@ http://www.homeandlearn.co.uk/php/php4p10.html
 5. Ajax call success function is passed the JSON string with contents of the file they submitted
 6. Parse and shove returned data into necessary functions for Highcharts
 7. Once data is given to Highcharts, the graph will display in the container div-- VOila!
+
+
+ Ajax Calls
+--------------
+GLOBAL
+Line 21
+Line 77
+
+Chart.js
+Line 7
