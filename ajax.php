@@ -1,4 +1,5 @@
 <?php
+require_once('common.php');
 
 //Handle save file name check
 if(	array_key_exists('action', $_GET) &&
@@ -15,7 +16,6 @@ if(	array_key_exists('action', $_GET) &&
 	exit();
 }
 
-//This function should run as the ajax call is made
 function storeFile(){
 		move_uploaded_file($_FILES["file"]["tmp_name"], "uploads");
 		echo "<script type='text/javascript'>alert('Uploading: " . $_FILES['file']['name'] . "');</script><br />";
@@ -34,4 +34,15 @@ function getFileData($filename){
 	echo $fileContent;
 }
 
-//
+//Run Functions
+if(	array_key_exists('file', $_GET) &&
+	array_key_exists('chartType', $_GET)
+	){
+	$fileName = escape_html($_GET['file']);
+	$chartType= escape_html($_GET['chartType']);
+
+	storeFile();
+	
+	getFileData($fileName);
+
+}
