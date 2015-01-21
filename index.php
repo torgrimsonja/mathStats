@@ -32,8 +32,6 @@
                     <h1>Math Stats</h1>
                 </div>
                 	<form id="formFileSubmit" method="get" action="display.php" enctype="multipart/form-data">
-                    <!-- Form data is now handled via ajax -->
-                    <!-- File is sent to main.php to be saved and processed -->
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
