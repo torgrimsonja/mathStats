@@ -3,12 +3,13 @@
 //Set the code for the chart to a variable
 var chart = new Highcharts.Chart(options);
 
-//Ajax call to php fetching data that has already been parsed in php
+//Ajax call to get JSON string for options variable
 $.ajax({ 
 		type: "POST",
-		url: "inc/main.php",
+		url: "ajax.php",
 		dataType: "text",
 		success: function(data){
+			alert('fish');
 			processData(data);
 		}
 	});
