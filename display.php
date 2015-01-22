@@ -3,6 +3,15 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Enjoy your cool graph...</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    	<script type="text/javascript" src="inc/global.js"></script>
+        <script type="text/javascript" src="chart.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+
 </head>
 
 <body>
