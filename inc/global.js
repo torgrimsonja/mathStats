@@ -14,11 +14,22 @@
 	//Make sure the fileName is not null
 	function checkIfFile(){
 		console.log("In checkIfFile");
-			 fileName = $("#fileSelect").val();
+			var fileName = $("#fileSelect").val();
 			if(fileName != ""){
 				checkName(fileName);
 			}
 	}
+	
+	function previousFile(){
+		console.log('In previousFile function');
+		fileName = $("#loadFile").val();
+		if(fileName == "default"){
+			console.log('User changed the file back to default');
+		}else{
+			console.log('User is choosing to load '+fileName);
+		}
+	}
+	
 	//Prevent multiple files with the same name
 	function checkName(file){
 		console.log("In checkname function");

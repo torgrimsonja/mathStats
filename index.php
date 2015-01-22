@@ -15,7 +15,6 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     	<script type="text/javascript" src="inc/global.js"></script>
-        <script type="text/javascript" src="chart.js"></script>
         <!-- <link type="text/css" rel="stylesheet" href="inc/jquery/jquery.mobile-1.4.3.min.css"/> -->
  
     </head>
@@ -36,7 +35,7 @@
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
                         <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" />
-                        <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false">
+                        <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false" onChange="previousFile()">
                             <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                             <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                             <?php

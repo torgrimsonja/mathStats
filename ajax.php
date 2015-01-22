@@ -8,9 +8,9 @@ if(	array_key_exists('action', $_GET) &&
 	array_key_exists('name', $_GET)
 	){
 	if(file_exists("uploads/".$_GET['name'])){
-	   echo "<script type='text/javascript'>alert('Invalid File Upload Name');</script><br />";
+	   echo "Invalid";
 	}else{
-		echo "<script type='text/javascript'>alert('File Upload was Valid');</script><br />";
+		echo "Valid";
 	}
 	exit();
 }
