@@ -30,7 +30,7 @@
                 <div data-role="header">
                     <h1>Math Stats</h1>
                 </div>
-                	<form id="formFileSubmit" method="get" action="display.php" enctype="multipart/form-data">
+                	<form id="formFileSubmit" method="get" action="echo.php" enctype="multipart/form-data">
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
