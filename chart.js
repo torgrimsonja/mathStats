@@ -1,16 +1,24 @@
 //Script for displaying a chart, printing it, and downloading it
-
+$(document).on('pageinit', deviceReady);
 //Set the code for the chart to a variable
 var chart = new Highcharts.Chart(options);
+console.log("In chart.js");
+
+function deviceReady(){
+	console.log("Crap should happen twice theoretically");
+}
 
 //Ajax call to get JSON string for options variable
 $.ajax({ 
 		type: "POST",
 		url: "ajax.php",
-		dataType: "text",
+		dataType: "json",
 		success: function(data){
-			alert('fish');
+			console.log('Ajax successful inside chart.js');
 			processData(data);
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+  			console.log(textStatus, errorThrown);
 		}
 	});
 
@@ -88,6 +96,38 @@ $('#buttonPrint').click(function(){
 	console.log('User clicked the Print button');
 	Print();
 });
+
+//The Process Data Function takes the data from the Ajax call and sets it into variables for use in the highchart
+	function processData(data){
+		console.log("Inside processData function");
+		//Split the rows
+		var dataRows = data.split("\n");
+		//Iterate over the lines and add categories or series 
+		$.each(dataRows, function(lineNum, line){
+			var items = line.split(',');	
+			//Second line after radio button stuff contains categories
+			if(lineNum == 1){
+				$.each(items, function(itemNum, value){
+					if(itemNum > 0){
+						options.xAxis.categories.push(value);
+					}
+				});
+			}else{
+				//The rest of the lines contain data with their name in the first position
+				var series = {
+						data: []
+				};
+				$.each(items, function(itemNum, value){
+						if(itemNum == 0){
+							series.name = value;
+						}else{
+							series.data.push(parseFloat(value));
+						}
+				});
+				options.series.push(series);
+			}
+		});
+	}
 
 //This is the code for downloading a chart.
 //Downloading Module Code
