@@ -187,6 +187,8 @@ function makeHTML(){
 			</body>
 			</html>";
 		
+		echo $html;
+		
 }
 
 //Run Functions
@@ -201,4 +203,4 @@ if(	array_key_exists('file', $_GET) &&
 }
 
 //Echo HTML
-echo $html;
+makeHTML();
