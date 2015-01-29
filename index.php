@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Input File</title>
+        <title>MathStats App</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -30,12 +31,12 @@
                 <div data-role="header">
                     <h1>Math Stats</h1>
                 </div>
-                	<form id="formFileSubmit" method="get" action="echo.php" enctype="multipart/form-data">
+                	<form data-ajax="false" id="formFileSubmit" method="post" action="echo.php" enctype="multipart/form-data">
                         <!-- Restrict file uploads that will fail -->
                         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <!-- Name of input element for upload determines name in the $_FILES array -->
-                        <input id="fileSelect" type="file" name="file" onChange="checkIfFile()" />
-                        <select id="loadFile" data-role="button" type="file" name="file" data-native-menu="false" onChange="previousFile()">
+                        <input id="fileSelect" type="file" name="newFile" onChange="checkIfFile()" />
+                        <select id="loadFile" data-role="button" type="file" name="existingFile" data-native-menu="false" onChange="previousFile()">
                             <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
                             <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
                             <?php

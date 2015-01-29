@@ -1,29 +1,42 @@
 <?php
 require_once('common.php');
+//die(var_dump($_FILES));
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
-//Declare GLOBAL variables
-$fileName = escape_html($_FILES['file']['name']);
+//Declare variables
+$uploadPath = "uploads/";
+	//$fileName
+	if(array_key_exists('newFile', $_FILES)){
+		$fileName = escape_html($_FILES['newFile']['name']);
+	}else if(array_key_exists('existingFile', $_POST)){
+		$fileName = $_POST['existingFile']; 
+	}else{
+		die("Sorry buddy, you didn't upload a file.");
+	}
+die(print_r($_POST['existingFile']));
 $fileContent = file_get_contents($fileName);
-$chartType = escape_html($_GET['chartType']);
+$chartType = escape_html($_POST['chartType']);
 $fileLines = explode("\n", $fileContent);
 
 //Page Level Functions
 //storeFile function is from previous code at ajax.php
-function storeFile(){
-		move_uploaded_file($_FILES["file"]["tmp_name"], "uploads");
-		echo "<script type='text/javascript'>console.log('Uploading: " . $_FILES['file']['name'] . "');</script><br />";
+function storeFile($path, $name){
+	
+		move_uploaded_file($_FILES["file"]["name"], "uploads");
+		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
-		if(file_exists($uploadPath . $_FILES["file"]["name"])){
+		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
 			echo $_FILES["file"]["name"];
 			echo "<script type='text/javascript'>console.log('".$_FILES['file']['name']." was uploaded');</script><br />";
 		}else{
-			echo "<script type='text/javascript'>console.log('ERROR, file was not successfully saved to directory.');</script><br />";
+			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
 
 }
 
 function makeHTML(){
-	$html;
+	
 	$html = "<DOCTYPE html>
 			<html>
 			<head>
@@ -192,13 +205,11 @@ function makeHTML(){
 }
 
 //Run Functions
-if(	array_key_exists('file', $_GET) &&
-	array_key_exists('chartType', $_GET)
+if(	array_key_exists('file', $_POST) &&
+	array_key_exists('chartType', $_POST)
 	){
 
-	storeFile();
-	
-	//getFileData($fileName);
+	storeFile($uploadPath, $fileName);
 
 }
 
