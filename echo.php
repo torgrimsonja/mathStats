@@ -14,7 +14,6 @@ $uploadPath = "uploads/";
 	}else{
 		die("Sorry buddy, you didn't upload a file.");
 	}
-die(print_r($_POST['existingFile']));
 $fileContent = file_get_contents($fileName);
 $chartType = escape_html($_POST['chartType']);
 $fileLines = explode("\n", $fileContent);
@@ -23,7 +22,7 @@ $fileLines = explode("\n", $fileContent);
 //storeFile function is from previous code at ajax.php
 function storeFile($path, $name){
 	
-		move_uploaded_file($_FILES["file"]["name"], "uploads");
+		move_uploaded_file($_FILES["newFile"]["name"], "uploads");
 		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
@@ -35,7 +34,7 @@ function storeFile($path, $name){
 
 }
 
-function makeHTML(){
+function makeHTML($lines){
 	
 	$html = "<DOCTYPE html>
 			<html>
@@ -59,8 +58,8 @@ function makeHTML(){
 
 						//Define variables
 						var chart = new Highcharts.Chart(options);
-						var dataLines = ".$fileLines.";
-						var titleName = 'Temperature for '+".$fileLines[2].";
+						var dataLines = ".$lines.";
+						var titleName = 'Temperature for '+".$lines[2].";
 						var yAxisTitle = 'Temperature';
 
 						//Create Functions
@@ -214,4 +213,4 @@ if(	array_key_exists('file', $_POST) &&
 }
 
 //Echo HTML
-makeHTML();
+makeHTML($fileLines);
