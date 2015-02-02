@@ -17,7 +17,7 @@ if(	array_key_exists('action', $_GET) &&
 
 //Functions
 function storeFile(){
-		move_uploaded_file($_FILES["file"]["tmp_name"], "uploads");
+		move_uploaded_file($_FILES["file"]["name"], "uploads");
 		echo "<script type='text/javascript'>alert('Uploading: " . $_FILES['file']['name'] . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(file_exists($uploadPath . $_FILES["file"]["name"])){
