@@ -34,16 +34,35 @@ function storeFile($path, $name){
 			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
 		$fileContent = file_get_contents($fileName);
+		die($fileContent . "<==");
 }
 
 function makeHTML($lines){
 	
+	die(var_dump($lines));
+	//Reach out for global variables
+	global $chartType;
 	
+	$cell = array();
+	$j = 0;
+	while($j <= count($lines)){
+		$explodelines = explode(", ", $lines[$j]);
+		die(print_r($explodelines));
+		$i = 0;
+		while($i >= count($explodelines)){
+			
+		}
+		$j++;
+	}
 	
-	/*$cell = explode(", ", $lines);
-		//Cant explode array, use foreach loop
+	//Cant explode array, use foreach loop
+	foreach($lines as $key => $value){
+		$rowcells = explode(", ", $key);
+		array_push($cells, $rowcells);
+		
+	}
 	
-	foreach($row as $column){
+	foreach($lines as $row => $column){
 		if($column == 3){
 			$celcius = $cell[$row][$column];
 		}else if($column == 4){
@@ -51,7 +70,7 @@ function makeHTML($lines){
 		}else if($column == 2){
 			//Need to properly insert Day, Hour, Minute Time format for the categories variable
 		}
-	}*/
+	}
 	
 	$html = "<DOCTYPE html>
 			<html>
@@ -75,8 +94,8 @@ function makeHTML($lines){
 
 						//Define variables
 						var chart = new Highcharts.Chart(options);
-						var dataLines = ".$lines.";
-						var titleName = 'Temperature for '+".$lines[2].";
+						var dataLines = ".json_encode($lines).";
+						var titleName = 'Temperature Chart';
 						var yAxisTitle = 'Temperature';
 
 						//Create Functions
@@ -106,39 +125,6 @@ function makeHTML($lines){
 						        chart.exportChart({type: 'image/svg+xml', filename: titleName}, {subtitle: {text:''}});
 						    }
 						}
-
-						//The processData function needs to be rewritten to work within our php with all of the variables we already have
-						function processData(data){
-								console.log('Inside processData function');
-								//Split the rows
-								var dataRows = data.split('\n');
-								//Iterate over the lines and add categories or series 
-								$.each(dataRows, function(lineNum, line){
-									var items = line.split(',');	
-									//Second line after radio button stuff contains categories
-									if(lineNum == 1){
-										$.each(items, function(itemNum, value){
-											if(itemNum > 0){
-												options.xAxis.categories.push(value);
-											}
-										});
-									}else{
-										//The rest of the lines contain data with their name in the first position
-										var series = {
-												data: []
-										};
-										$.each(items, function(itemNum, value){
-												if(itemNum == 0){
-													series.name = value;
-												}else{
-													series.data.push(parseFloat(value));
-												}
-										});
-										options.series.push(series);
-									}
-								});
-							}
-
 
 						//Define initial skeleton for chart
 						var options = {
@@ -221,6 +207,8 @@ function makeHTML($lines){
 }
 
 //Run Functions
+die(print_r($_POST));
+
 if(	array_key_exists('file', $_POST) &&
 	array_key_exists('chartType', $_POST)
 	){
@@ -233,7 +221,9 @@ if(	array_key_exists('file', $_POST) &&
 function explodeFile(){
 	global $fileLines;
 	global $fileContent;
+	die(var_dump($fileContent));
 	$fileLines = explode("\n", $fileContent);
+	die(print_r($fileLines));
 }
 
 //Echo HTML
