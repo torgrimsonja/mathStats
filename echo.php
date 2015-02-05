@@ -4,7 +4,12 @@ require_once('common.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
+
+//DEBUG
+die(print_r($_FILES)."<br />".print_r($_POST));
+
 //Declare variables
+$fileName;
 $fileContent;
 $fileLines;
 $chartType = escape_html($_POST['chartType']);
@@ -21,8 +26,6 @@ if(array_key_exists('newFile', $_FILES)){
 }else{
 	die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
 }
-	//DEBUG
-	//die(var_dump($_FILES)."<br />".var_dump($_POST));
 
 
 //Page Level Functions
@@ -33,13 +36,12 @@ function storeFile($path, $name){
 		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
-			echo $_FILES["file"]["name"];
-			echo "<script type='text/javascript'>console.log('".$_FILES['file']['name']." was uploaded');</script><br />";
+			echo $_FILES["newFile"]["name"];
+			echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
 		}else{
 			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
 		$fileContent = file_get_contents($fileName);
-		die($fileContent . "<==");
 }
 
 
@@ -59,7 +61,7 @@ function makeHTML($lines){
 		$j = 0;
 		while($j <= count($lines)){
 			$explodelines = explode(", ", $lines[$j]);
-			die(print_r($explodelines));
+			//die(print_r($explodelines));
 			$i = 0;
 			while($i >= count($explodelines)){
 				
