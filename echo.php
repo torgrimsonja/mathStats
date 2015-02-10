@@ -4,9 +4,9 @@ require_once('common.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-
 //DEBUG
-die(print_r($_FILES)."<br />".print_r($_POST));
+//die(print_r($_FILES)."<br />".print_r($_POST));
+//die(print_r($_FILES['newFile']));
 
 //Declare variables
 $fileName;
@@ -14,15 +14,18 @@ $fileContent;
 $fileLines;
 $chartType = escape_html($_POST['chartType']);
 $uploadPath = "uploads/";
-	
+
 //Logic
-if(array_key_exists('newFile', $_FILES)){
+if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
 	$fileName = escape_html($_FILES['newFile']['name']);
+	die('Newfile <br /><br />'.$fileName);
 	storeFile($uploadPath, $fileName);
-	makeFile();
+	makeFileLines();
 }else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
 	$fileName = $_POST['existingFile']; 
-	makeFile();
+	//die('existingFile is equal to...'.$fileName);
+	existingFileContent();
+	makeFileLines();
 }else{
 	die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
 }
@@ -30,7 +33,9 @@ if(array_key_exists('newFile', $_FILES)){
 
 //Page Level Functions
 function storeFile($path, $name){
+		global $fileName;
 		global $fileContent;
+		global $uploadPath;
 	
 		move_uploaded_file($_FILES['newFile']['name'], 'uploads');
 		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
@@ -41,7 +46,16 @@ function storeFile($path, $name){
 		}else{
 			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
-		$fileContent = file_get_contents($fileName);
+		$fileContent = file_get_contents($uploadPath.$fileName);
+		die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
+		//die($fileContent);
+}
+
+function existingFileContent(){
+	global $fileName;
+	global $fileContent;
+	global $uploadPath;
+	$fileContent = file_get_contents($uploadPath.$fileName);	
 }
 
 
@@ -53,34 +67,22 @@ function makeFileLines(){
 
 
 function makeHTML($lines){
-	
 	//Create Data Variables
 		global $chartType;
 		
-		$cell = array();
 		$j = 0;
-		while($j <= count($lines)){
-			$explodelines = explode(", ", $lines[$j]);
-			//die(print_r($explodelines));
-			$i = 0;
-			while($i >= count($explodelines)){
-				
-			}
+		foreach($lines as $key => $value){
+			//make cells a multidimensional array with elements for each cell in the csv file 
+			$cells[$j] = explode(", ", $lines[$j]);
 			$j++;
 		}
-		
-		//Cant explode array, use foreach loop
-		foreach($lines as $key => $value){
-			$rowcells = explode(", ", $key);
-			array_push($cells, $rowcells);
-			
-		}
+		die(print_r($cells));
 		
 		foreach($lines as $row => $column){
 			if($column == 3){
-				$celcius = $cell[$row][$column];
+				$celcius = $cells[$row][$column];
 			}else if($column == 4){
-				$fahrenheit = $cel[$row][$column];
+				$fahrenheit = $cells[$row][$column];
 			}else if($column == 2){
 				//Need to properly insert Day, Hour, Minute Time format for the categories variable
 			}
@@ -220,5 +222,5 @@ function makeHTML($lines){
 		
 }
 
-//Echo HTML
+//Create page
 makeHTML($fileLines);
