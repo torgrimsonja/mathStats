@@ -18,12 +18,10 @@ $uploadPath = "uploads/";
 //Logic
 if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
 	$fileName = escape_html($_FILES['newFile']['name']);
-	die('Newfile <br /><br />'.$fileName);
 	storeFile($uploadPath, $fileName);
 	makeFileLines();
 }else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
 	$fileName = $_POST['existingFile']; 
-	//die('existingFile is equal to...'.$fileName);
 	existingFileContent();
 	makeFileLines();
 }else{
@@ -33,22 +31,18 @@ if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
 
 //Page Level Functions
 function storeFile($path, $name){
-		global $fileName;
 		global $fileContent;
-		global $uploadPath;
 	
 		move_uploaded_file($_FILES['newFile']['name'], 'uploads');
 		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
-			echo $_FILES["newFile"]["name"];
 			echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
 		}else{
 			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
 		$fileContent = file_get_contents($uploadPath.$fileName);
-		die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
-		//die($fileContent);
+		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
 }
 
 function existingFileContent(){
@@ -69,6 +63,8 @@ function makeFileLines(){
 function makeHTML($lines){
 	//Create Data Variables
 		global $chartType;
+		global $fahrenheit;
+		global $celcius;
 		
 		$j = 0;
 		foreach($lines as $key => $value){
@@ -76,7 +72,7 @@ function makeHTML($lines){
 			$cells[$j] = explode(", ", $lines[$j]);
 			$j++;
 		}
-		die(print_r($cells));
+		//die(print_r($cells));
 		
 		foreach($lines as $row => $column){
 			if($column == 3){
