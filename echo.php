@@ -1,76 +1,88 @@
 <?php
+//Error Reporting and Commmon Functions
 require_once('common.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
+//DEBUG
+//die(print_r($_FILES)."<br />".print_r($_POST));
+//die(print_r($_FILES['newFile']));
+
 //Declare variables
+$fileName;
 $fileContent;
 $fileLines;
 $chartType = escape_html($_POST['chartType']);
 $uploadPath = "uploads/";
-	//$fileName
-	if(array_key_exists('newFile', $_FILES)){
-		$fileName = escape_html($_FILES['newFile']['name']);
-	}else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
-		$fileName = $_POST['existingFile']; 
-	}else{
-		die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
-	}
-	//die(var_dump($_FILES)."<br />".var_dump($_POST));
+
+//Logic
+if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
+	$fileName = escape_html($_FILES['newFile']['name']);
+	storeFile($uploadPath, $fileName);
+	makeFileLines();
+}else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
+	$fileName = $_POST['existingFile']; 
+	existingFileContent();
+	makeFileLines();
+}else{
+	die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
+}
 
 
 //Page Level Functions
-//storeFile function is from previous code at ajax.php
 function storeFile($path, $name){
 		global $fileContent;
 	
-		move_uploaded_file($_FILES["newFile"]["name"], "uploads");
+		move_uploaded_file($_FILES['newFile']['name'], 'uploads');
 		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
-			echo $_FILES["file"]["name"];
-			echo "<script type='text/javascript'>console.log('".$_FILES['file']['name']." was uploaded');</script><br />";
+			echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
 		}else{
 			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
-		$fileContent = file_get_contents($fileName);
-		die($fileContent . "<==");
+		$fileContent = file_get_contents($uploadPath.$fileName);
+		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
 }
 
+function existingFileContent(){
+	global $fileName;
+	global $fileContent;
+	global $uploadPath;
+	$fileContent = file_get_contents($uploadPath.$fileName);	
+}
+
+
+function makeFileLines(){
+	global $fileLines;
+	global $fileContent;
+	$fileLines = explode("\n", $fileContent);
+}
+
+
 function makeHTML($lines){
-	
-	die(var_dump($lines));
-	//Reach out for global variables
-	global $chartType;
-	
-	$cell = array();
-	$j = 0;
-	while($j <= count($lines)){
-		$explodelines = explode(", ", $lines[$j]);
-		die(print_r($explodelines));
-		$i = 0;
-		while($i >= count($explodelines)){
-			
-		}
-		$j++;
-	}
-	
-	//Cant explode array, use foreach loop
-	foreach($lines as $key => $value){
-		$rowcells = explode(", ", $key);
-		array_push($cells, $rowcells);
+	//Create Data Variables
+		global $chartType;
+		global $fahrenheit;
+		global $celcius;
 		
-	}
-	
-	foreach($lines as $row => $column){
-		if($column == 3){
-			$celcius = $cell[$row][$column];
-		}else if($column == 4){
-			$fahrenheit = $cel[$row][$column];
-		}else if($column == 2){
-			//Need to properly insert Day, Hour, Minute Time format for the categories variable
+		$j = 0;
+		foreach($lines as $key => $value){
+			//make cells a multidimensional array with elements for each cell in the csv file 
+			$cells[$j] = explode(", ", $lines[$j]);
+			$j++;
 		}
-	}
+		//die(print_r($cells));
+		
+		foreach($lines as $row => $column){
+			if($column == 3){
+				$celcius = $cells[$row][$column];
+			}else if($column == 4){
+				$fahrenheit = $cells[$row][$column];
+			}else if($column == 2){
+				//Need to properly insert Day, Hour, Minute Time format for the categories variable
+			}
+		}
 	
 	$html = "<DOCTYPE html>
 			<html>
@@ -206,26 +218,5 @@ function makeHTML($lines){
 		
 }
 
-//Run Functions
-die(print_r($_POST));
-
-if(	array_key_exists('file', $_POST) &&
-	array_key_exists('chartType', $_POST)
-	){
-	
-	
-	storeFile($uploadPath, $fileName);
-
-}
-
-function explodeFile(){
-	global $fileLines;
-	global $fileContent;
-	die(var_dump($fileContent));
-	$fileLines = explode("\n", $fileContent);
-	die(print_r($fileLines));
-}
-
-//Echo HTML
-explodeFile();
+//Create page
 makeHTML($fileLines);
