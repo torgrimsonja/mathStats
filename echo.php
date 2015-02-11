@@ -9,6 +9,10 @@ ini_set('display_errors', 'On');
 //die(print_r($_FILES['newFile']));
 
 //Declare variables
+$celcius = array();
+$fahrenheit = array();
+$time = array();
+$date = array();
 $fileName;
 $fileContent;
 $fileLines;
@@ -27,7 +31,6 @@ if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
 }else{
 	die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
 }
-
 
 //Page Level Functions
 function storeFile($path, $name){
@@ -62,6 +65,8 @@ function makeFileLines(){
 
 function makeHTML($lines){
 	//Create Data Variables
+		global $time;
+		global $date;
 		global $chartType;
 		global $fahrenheit;
 		global $celcius;
@@ -74,15 +79,23 @@ function makeHTML($lines){
 		}
 		//die(print_r($cells));
 		
-		foreach($lines as $row => $column){
-			if($column == 3){
-				$celcius = $cells[$row][$column];
-			}else if($column == 4){
-				$fahrenheit = $cells[$row][$column];
-			}else if($column == 2){
-				//Need to properly insert Day, Hour, Minute Time format for the categories variable
+		$k = 0;
+		foreach($cells as $value){
+			foreach($value as $secondvalue){
+				if($secondvalue == $cells[$k][0]){
+					array_push($date, $secondvalue);
+					//Need to format date properly
+				}else if($secondvalue == $cells[$k][1]){
+					array_push($time, $secondvalue);
+				}else if($secondvalue == $cells[$k][2]){
+					array_push($celcius, $secondvalue);	
+				}else if($secondvalue == $cells[$k][3]){
+					array_push($fahrenheit, $secondvalue);
+				}
 			}
+		$k++;
 		}
+		//die(print_r($date).print_r($time).print_r($celcius).print_r($fahrenheit));
 	
 	$html = "<DOCTYPE html>
 			<html>
@@ -106,7 +119,6 @@ function makeHTML($lines){
 
 						//Define variables
 						var chart = new Highcharts.Chart(options);
-						var dataLines = ".json_encode($lines).";
 						var titleName = 'Temperature Chart';
 						var yAxisTitle = 'Temperature';
 
