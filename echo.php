@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 //DEBUG
-//die(print_r($_FILES)."<br />".print_r($_POST));
+die(print_r($_FILES)."<br />".print_r($_POST));
 //die(print_r($_FILES['newFile']));
 
 //Declare variables
@@ -170,11 +170,11 @@ function makeHTML($lines){
 							},
 							series: [{
 										name:'Celsius',
-										data:[".$celcius."]
+										data:".json_encode($celcius)."
 									 },
 									{
 										name:'Fahrenheit',
-										data:[".$fahrenheit."]
+										data:".json_encode($fahrenheit)."
 									}]
 							};
 
