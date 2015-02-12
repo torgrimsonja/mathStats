@@ -4,10 +4,13 @@ require_once('common.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-//DEBUG
-die(print_r($_FILES)."<br />".print_r($_POST));
-//die(print_r($_FILES['newFile']));
 
+
+
+//DEBUG
+//die(print_r($_FILES)."<br />".print_r($_POST));
+//die(print_r($_FILES['newFile']));
+//die(print_r($_POST));
 //Declare variables
 $celcius = array();
 $fahrenheit = array();
@@ -16,11 +19,11 @@ $date = array();
 $fileName;
 $fileContent;
 $fileLines;
-$chartType = escape_html($_POST['chartType']);
+$chartType = array_key_exists('chartType', $_POST) ? escape_html($_POST['chartType']) : 'No Type Chosen';
 $uploadPath = "uploads/";
 
 //Logic
-if(array_key_exists('newFile', $_FILES) && $_FILES['newFile']['error'] != 4){
+if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
 	$fileName = escape_html($_FILES['newFile']['name']);
 	storeFile($uploadPath, $fileName);
 	makeFileLines();

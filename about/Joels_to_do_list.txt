@@ -21,3 +21,8 @@ http://www.homeandlearn.co.uk/php/php4p10.html
 Date and stuff
 http://stackoverflow.com/questions/17033889/convert-army-time-to-regular-time-am-pm-in-php
 http://php.net/manual/en/function.date.php
+
+
+XTREME MAKEOVER
+-----------------------
+http://www.gajotres.net/how-to-correctly-submit-form-data-in-jquery-mobile/
