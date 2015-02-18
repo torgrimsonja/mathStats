@@ -38,16 +38,19 @@ if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
 //Page Level Functions
 function storeFile($path, $name){
 		global $fileContent;
-	
-		move_uploaded_file($_FILES['newFile']['name'], 'uploads');
-		echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
+		$tmp_name = $_FILES["newFile"]["tmp_name"];
+        $name = $_FILES["newFile"]["name"];
+        move_uploaded_file($tmp_name, "/uploads/$name");
+		/*
+		//echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
 		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
-			echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
+			//echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
 		}else{
-			echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
+			//echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
-		$fileContent = file_get_contents($uploadPath.$fileName);
+        */
+		$fileContent = file_get_contents('/uploads'.'/'.$name);
 		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
 }
 
