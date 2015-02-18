@@ -109,6 +109,8 @@ function makeHTML($lines){
 					<script src='http://code.highcharts.com/highcharts.js'></script>
 					<script src='http://code.highcharts.com/modules/exporting.js'></script>
 					<script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+					<script src='http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js'></script>
+					<link rel='stylesheet' href='http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css'>
 					<script type='text/javascript' name='chartCode'>
 					//Script for displaying a chart, printing it, and downloading it
 						//DeviceReady event handling

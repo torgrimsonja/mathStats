@@ -4,12 +4,13 @@
 	var files;
 	var fileName;
 	var chartType;
-		
-	
-	function deviceReady(){
+	$(document).bind("mobileinit", function () {
 		$.mobile.ajaxEnabled = false;
-		console.log('Ajax disabled.');
-	}
+	});
+	
+function deviceReady(){
+	console.log("Crap should happen twice theoretically");
+}
 	//Make sure the fileName is not null
 	function checkIfFile(){
 		console.log("In checkIfFile");
