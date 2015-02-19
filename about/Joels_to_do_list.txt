@@ -14,7 +14,6 @@ http://www.gajotres.net/how-to-correctly-submit-form-data-in-jquery-mobile/
 
 TO DO
 -----
-Fix server for uploading files - T
 Make pretty - Tanner
-Make sure all stuff is being given to highcharts - Joel
+Correctly generate chart w/ .highcharts method (echo line 204 ) - Joel
 Correctly format php date stuff - Joel
