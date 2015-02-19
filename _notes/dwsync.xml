@@ -4,19 +4,11 @@
 <file name="common.php" server="web" local="130595222742356203" remote="130596975000000000" Dst="1" />
 <file name="common.php" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="index.php" server="C:/wamp/www/" local="130602155256312039" remote="130602155250000000" Dst="1" />
-<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130662620563745170" remote="130675601400000000" Dst="1" />
-<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130686824997585804" remote="130686839400000000" Dst="1" />
-<file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130665234589330811" remote="130665248400000000" Dst="1" />
-<file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130671261293704239" remote="130673882400000000" Dst="1" />
-<file name="display.php" server="ftp.tfhsbruins.com//mathStats/" local="130665234610000000" remote="130665248400000000" Dst="1" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130682511642317352" remote="130682526000000000" Dst="1" />
-=======
-<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130686836122609302" remote="130686850200000000" Dst="1" />
-<file name="info.php" server="ftp.tfhsbruins.com//mathStats/" local="130686830908005804" remote="130686845400000000" Dst="1" />
->>>>>>> origin/master
-=======
-<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130686824970325804" remote="130686839400000000" Dst="1" />
->>>>>>> parent of 8362897... Revert "Trying to SCRAP Jquery Mobile"
+<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130662620563745170" remote="130688550000000000" Dst="1" />
+<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130688536023336936" remote="130688550600000000" Dst="1" />
+<file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130665234589330811" remote="130688550000000000" Dst="1" />
+<file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130671261293704239" remote="130688550000000000" Dst="1" />
+<file name="display.php" server="ftp.tfhsbruins.com//mathStats/" local="130665234610000000" remote="130688550000000000" Dst="1" />
+<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130688534457606936" remote="130688550000000000" Dst="1" />
+<file name="info.php" server="ftp.tfhsbruins.com//mathStats/" local="130686830908005804" remote="130688550000000000" Dst="1" />
 </dwsync>
