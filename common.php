@@ -10,3 +10,6 @@
 	function escape_html($value){
 		return htmlentities($value, ENT_QUOTES, 'utf-8');
 	}
+
+//Set true for debugging statements to show
+define('DEBUG', FALSE);

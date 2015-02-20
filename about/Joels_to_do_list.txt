@@ -5,24 +5,15 @@ http://www.homeandlearn.co.uk/php/php4p10.html
 
 
       Website Plan
---------------------------------
-
-1. User inputs file and chooses type
-2. Clicks button
-3. Client creates GLOBAL variable storing name of file and chartType
-4. Page changes to display page
-4. Runs ajax call to store file and getFileData, then echos it as a JSON string for Ajax call
-5. Ajax call success function is passed the JSON string with contents of the file they submitted
-6. Parse and shove returned data into necessary functions for Highcharts
-7. Once data is given to Highcharts, the graph will display in the container div-- VOila!
-
-
-
+-------------------------------
 Date and stuff
 http://stackoverflow.com/questions/17033889/convert-army-time-to-regular-time-am-pm-in-php
 http://php.net/manual/en/function.date.php
-
-
-XTREME MAKEOVER
------------------------
 http://www.gajotres.net/how-to-correctly-submit-form-data-in-jquery-mobile/
+
+
+TO DO
+-----
+Make pretty - Tanner
+Correctly generate chart w/ .highcharts method (echo line 204 ) - Joel
+Correctly format php date stuff - Joel

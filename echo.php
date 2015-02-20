@@ -2,16 +2,18 @@
 //Error Reporting and Commmon Functions
 require_once('common.php');
 error_reporting(E_ALL);
-//ini_set('display_errors', 'On');
+ini_set('display_errors', 'On');
 
+/*Set DEBUG to true in common
+if(DEBUG){
+	//die(print_r($_FILES)."<br />".print_r($_POST));
+	//die(print_r($_FILES['newFile']));
+	//die(print_r($_POST));
+}*/
 
-
-
-//DEBUG
-//die(print_r($_FILES)."<br />".print_r($_POST));
-//die(print_r($_FILES['newFile']));
-//die(print_r($_POST));
 //Declare variables
+$titleName = 'Temperature Chart';
+$yAxisTitle = 'Temperature';
 $celcius = array();
 $fahrenheit = array();
 $time = array();
@@ -26,13 +28,14 @@ $uploadPath = "uploads/";
 if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
 	$fileName = escape_html($_FILES['newFile']['name']);
 	storeFile($uploadPath, $fileName);
-	makeFileLines();
+	makeHTML($fileLines);
 }else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
 	$fileName = $_POST['existingFile']; 
 	existingFileContent();
 	makeFileLines();
+	makeHTML($fileLines);
 }else{
-	die("Sorry buddy, you either didn't upload a file or it wasnt a CSV file.");
+	die('Sorry buddy, you either didn\'t upload a file or it wasn\'t a CSV file.');
 }
 
 //Page Level Functions
@@ -40,7 +43,7 @@ function storeFile($path, $name){
 		global $fileContent;
 		$tmp_name = $_FILES["newFile"]["tmp_name"];
         $name = $_FILES["newFile"]["name"];
-        move_uploaded_file($tmp_name, "/uploads/$name");
+        $uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
 		/*
 		//echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
 		 //Check that it is in the uploads folder
@@ -50,7 +53,14 @@ function storeFile($path, $name){
 			//echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
 		}
         */
-		$fileContent = file_get_contents('/uploads'.'/'.$name);
+		$fileContent = file_get_contents('uploads'.'/'.$name);
+		if(DEBUG){
+			if($uploaded){
+				die(file_get_contents('uploads'.'/'.$name));
+			}else{
+				die($tmp_name);	
+			}
+		}
 		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
 }
 
@@ -76,14 +86,15 @@ function makeHTML($lines){
 		global $chartType;
 		global $fahrenheit;
 		global $celcius;
+		global $titleName;
+		global $yAxisTitle;
 		
 		$j = 0;
-		foreach($lines as $key => $value){
+		foreach($lines as $value){
 			//make cells a multidimensional array with elements for each cell in the csv file 
-			$cells[$j] = explode(", ", $lines[$j]);
+			$cells[$j] = explode(",", $lines[$j]);
 			$j++;
 		}
-		//die(print_r($cells));
 		
 		$k = 0;
 		foreach($cells as $value){
@@ -101,8 +112,10 @@ function makeHTML($lines){
 			}
 		$k++;
 		}
+		$jsonC = json_encode($celcius);
+		$jsonF = json_encode($fahrenheit);
 		//die(print_r($date).print_r($time).print_r($celcius).print_r($fahrenheit));
-	
+		
 	$html = "<DOCTYPE html>
 			<html>
 			<head>
@@ -123,14 +136,16 @@ function makeHTML($lines){
 
 						//Define variables
 						var chart = new Highcharts.Chart(options);
-						var titleName = 'Temperature Chart';
-						var yAxisTitle = 'Temperature';
 
 						//Create Functions
 						function Print(){
 							chart.setTitle(null, { text: ' ' });
 						    chart.print();
 						    chart.setTitle(null, { text: 'Click and drag in the plot area to zoom in' });
+						}
+						
+						function generateChart(chartToPass){
+								return chartToPass;
 						}
 
 						function userDownload(){
@@ -159,26 +174,27 @@ function makeHTML($lines){
 							chart:{
 								renderTo: 'container',
 								defaultChartType: 'column',
-								type: ".$chartType."
+								type: '".$chartType."'
 							},
 							title:{
-								text: titleName
+								text: '".$titleName."',
+								x: -20
 							},
 							xAxis:{
 								categories: []
 							},
 							yAxis:{
 								title:{
-									text: yAxisTitle	
+									text: '".$yAxisTitle."'
 								}
 							},
 							series: [{
 										name:'Celsius',
-										data:".json_encode($celcius)."
+										data:".$jsonC."
 									 },
 									{
 										name:'Fahrenheit',
-										data:".json_encode($fahrenheit)."
+										data:".$jsonF."
 									}]
 							};
 
@@ -187,6 +203,8 @@ function makeHTML($lines){
 							$(function(){						
 									$('#container').highcharts({
 										//Map the generated chart to the container div for display
+										//generateChart(chart);
+										new Highcharts.Chart(options);
 									});
 							});
 							
@@ -233,6 +251,3 @@ function makeHTML($lines){
 		echo $html;
 		
 }
-
-//Create page
-makeHTML($fileLines);
