@@ -4,21 +4,11 @@
 <file name="common.php" server="web" local="130595222742356203" remote="130596975000000000" Dst="1" />
 <file name="common.php" server="C:/wamp/www/" local="130598679609713352" remote="130598679600000000" Dst="1" />
 <file name="index.php" server="C:/wamp/www/" local="130602155256312039" remote="130602155250000000" Dst="1" />
-<<<<<<< HEAD
-<file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130663491461844740" remote="130688571600000000" Dst="1" />
-<file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130688563158511384" remote="130688577600000000" Dst="1" />
-<file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130668670798295256" remote="130687708800000000" Dst="1" />
-<file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130675580664176875" remote="130687708800000000" Dst="1" />
-<file name="display.php" server="ftp.tfhsbruins.com//mathStats/" local="130668670798335256" remote="130687708800000000" Dst="1" />
-<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130688538440166908" remote="130688577600000000" Dst="1" />
-<file name="info.php" server="ftp.tfhsbruins.com//mathStats/" local="130687693511703001" remote="130687708800000000" Dst="1" />
-=======
 <file name="common.php" server="ftp.tfhsbruins.com//mathStats/" local="130688554871192179" remote="130688571600000000" Dst="1" />
 <file name="index.php" server="ftp.tfhsbruins.com//mathStats/" local="130688536023336936" remote="130688550600000000" Dst="1" />
 <file name="chart.js" server="ftp.tfhsbruins.com//mathStats/" local="130665234589330811" remote="130688550000000000" Dst="1" />
 <file name="ajax.php" server="ftp.tfhsbruins.com//mathStats/" local="130671261293704239" remote="130688550000000000" Dst="1" />
 <file name="display.php" server="ftp.tfhsbruins.com//mathStats/" local="130665234610000000" remote="130688550000000000" Dst="1" />
-<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130689411315977453" remote="130689426000000000" Dst="1" />
+<file name="echo.php" server="ftp.tfhsbruins.com//mathStats/" local="130689425958206875" remote="130689440400000000" Dst="1" />
 <file name="info.php" server="ftp.tfhsbruins.com//mathStats/" local="130686830908005804" remote="130688550000000000" Dst="1" />
->>>>>>> origin/master
 </dwsync>
