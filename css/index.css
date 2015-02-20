@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	background-color: #f2f0ed;	
+}
+
+#index{
+	height: 100%;	
+}
+
+#content{
+	width: 90%;
+	height: 90%;
+	margin-top: 3%;	
+	margin-left: auto;
+	margin-right: auto;
+	border: thin black solid;
+	border-radius: 10px;
+	background-color: white;
+}
+
+#header{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header h1{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.4em;
+}
+
+#selectFileDiv{
+	padding: 1em;
+}
+
+#existingFileDiv{
+	padding: .8em;
+}
+
+#radioButtonDiv{
+	padding: 2em;
+}
