@@ -114,7 +114,15 @@ function makeHTML($lines){
 		}
 		$jsonC = json_encode($celcius);
 		$jsonF = json_encode($fahrenheit);
+		$jsonD = json_encode($date);
 		//die(print_r($date).print_r($time).print_r($celcius).print_r($fahrenheit));
+		
+		//Get rid of quotation marks in array values
+		$p = 0;
+		foreach($jsonC as $value){
+			str_replace('"',"&nbsp;",$jsonC[$p]);
+			$p++;
+		}
 		
 	$html = "<DOCTYPE html>
 			<html>
@@ -135,7 +143,7 @@ function makeHTML($lines){
 						console.log('In chart js from echo.php');
 
 						//Define variables
-						var chart = new Highcharts.Chart(options);
+						
 
 						//Create Functions
 						function Print(){
@@ -181,7 +189,7 @@ function makeHTML($lines){
 								x: -20
 							},
 							xAxis:{
-								categories: []
+								categories: '".$jsonD."'
 							},
 							yAxis:{
 								title:{
@@ -200,12 +208,8 @@ function makeHTML($lines){
 
 						//Buttons and Processes
 							//Display chart process
-							$(function(){						
-									$('#container').highcharts({
-										//Map the generated chart to the container div for display
-										//generateChart(chart);
-										new Highcharts.Chart(options);
-									});
+							$(function(){
+									var chart = new Highcharts.Chart(options);
 							});
 							
 							//Print button
