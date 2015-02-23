@@ -112,17 +112,20 @@ function makeHTML($lines){
 			}
 		$k++;
 		}
-		$jsonC = json_encode($celcius);
-		$jsonF = json_encode($fahrenheit);
-		$jsonD = json_encode($date);
-		//die(print_r($date).print_r($time).print_r($celcius).print_r($fahrenheit));
+		
 		
 		//Get rid of quotation marks in array values
 		$p = 0;
-		foreach($jsonC as $value){
-			str_replace('"',"&nbsp;",$jsonC[$p]);
+		foreach($celcius as $value){
+			str_replace('"'," ",$celcius[$p]);
 			$p++;
-		}
+		}	
+
+		$jsonC = json_encode($celcius, JSON_NUMERIC_CHECK);
+		$jsonF = json_encode($fahrenheit, JSON_NUMERIC_CHECK);
+		$jsonD = json_encode($date);
+		//die(print_r($date).print_r($time).print_r($celcius).print_r($fahrenheit));
+		
 		
 	$html = "<DOCTYPE html>
 			<html>
@@ -189,7 +192,7 @@ function makeHTML($lines){
 								x: -20
 							},
 							xAxis:{
-								categories: '".$jsonD."'
+								categories: ".$jsonD."
 							},
 							yAxis:{
 								title:{
@@ -234,21 +237,7 @@ function makeHTML($lines){
 							   
 						</div>
 						<!-- Below are exporting options -->
-						<fieldset class='ui-grid-a'>
-							<!-- Print the Chart -->
-							<div class='ui-block-a'><button id='buttonPrint' data-role='button'>Print chart</button></div>
-							<!-- Choose a Way to Save the Chart -->
-							<div class='ui-block-b'>
-								<select id='DownloadOption' data-native-menu='false'>
-									<option value='default' selected='selected'>Download As</option>
-									<option value='PNG'>PNG Image</option>
-									<option value='JPEG'>JPEG Image</option>
-									<option value='PDF'>PDF Document</option>
-									<option value='SVG'>SVG Vector Image</option>
-								</select>
-								<button id='downloadButton'>Download</button>
-							</div>
-						</fieldset>
+					
 			</body>
 			</html>";
 		
