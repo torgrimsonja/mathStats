@@ -69,7 +69,7 @@
                                     <input type="radio" name="chartType" id="radio-choice-2" value="line">
                                     <label for="radio-choice-2">Line Graph</label>
                              
-                                    <input type="radio" name="chartType" id="radio-choice-3" value="bar">
+                                    <input type="radio" name="chartType" id="radio-choice-3" value="column">
                                     <label for="radio-choice-3">Bar Graph</label>
                              
     
