@@ -15,76 +15,72 @@
     </head>
     
     <body>
-    	<div id="index" style="width: 100%;">
-        	<script type="text/javascript">
-			 	console.log('index loaded');
-			</script>
+		<script type="text/javascript">
+            console.log('index loaded');
+        </script>
 
-        	<div id="content">
-            	
-                <div id="header">
-                    <h1>Math Stats</h1>
-                    <hr />
-                </div>
-                
-                	<form data-ajax="false" id="formFileSubmit" method="post" action="echo.php" enctype="multipart/form-data">
-                        
-                        <!-- Restrict file uploads that will fail -->
-                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                        <!-- Name of input element for upload determines name in the $_FILES array -->
-                        <div id="selectFileDiv">
-                        	<input id="fileSelect" type="file" name="newFile" onChange="checkIfFile()" />
-                        </div>
-                        <div id="existingFileDiv">
-                            <select id="loadFile" data-role="button" type="file" name="existingFile" data-native-menu="false" onChange="previousFile()">
-                                <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
-                                <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
-                                <?php
-                                //Generate options for selection list based on previously saved files
-                                   $dir = 'uploads';
-                                   $files = scandir($dir, 1);
-                                   $j = 0;
-                                   foreach($files as $fileName/* File in directory */){
-                                        if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
-                                            //Don't add a load option
-                                        }else{
-                                            echo "<option name='load' value='".$fileName."'>".$fileName."</options>";
-                                            echo '<br />';
-                                        }
-                                        $j++;
-                                        
-                                   }
-                                ?>
-                                <!-- Input php selection list generation here -->
-                            </select>
-                        </div>
-                        <!-- Radio buttons below currently not rendering -->
-                        <div id="radioButtonDiv">
-                            <fieldset  data-role="controlgroup">
-                                    
-                                    Choose the type of chart/graph you would like.
-                                    <input type="radio" name="chartType" id="radio-choice-1" value="pie" checked="checked">
-                                    <label for="radio-choice-1">Pie Chart</label>
-                             
-                                    <input type="radio" name="chartType" id="radio-choice-2" value="line">
-                                    <label for="radio-choice-2">Line Graph</label>
-                             
-                                    <input type="radio" name="chartType" id="radio-choice-3" value="column">
-                                    <label for="radio-choice-3">Bar Graph</label>
-                             
-    
-                       
-                            </fieldset>   
-                        </div>
-                        <div id="submitButtonDiv" style="width: 75%; margin-left: auto; margin-right: auto;">
-                        	<input type="submit" value="Go" id="indexFileSubmit" style="width: 50%;" onClick=""></button>
-                        </div>
-                    </form>
-                 
-                </div>
-                
+        <div id="content">
             
-        </div>
+            <div id="header">
+                <h1>Math Stats</h1>
+                <hr />
+            </div>
+            
+                <form data-ajax="false" id="formFileSubmit" method="post" action="echo.php" enctype="multipart/form-data">
+                    
+                    <!-- Restrict file uploads that will fail -->
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                    <!-- Name of input element for upload determines name in the $_FILES array -->
+                    <div id="selectFileDiv">
+                        <input id="fileSelect" type="file" name="newFile" onChange="checkIfFile()" />
+                    </div>
+                    <div id="existingFileDiv">
+                        <select id="loadFile" data-role="button" type="file" name="existingFile" data-native-menu="false" onChange="previousFile()">
+                            <!-- Add dropdown items for every file in the uploads directory, based on Title csv file metadata -->
+                            <option name="loadList" id="defaultLoad" value="default" selected="selected">Choose a previously saved file...</option>
+                            <?php
+                            //Generate options for selection list based on previously saved files
+                               $dir = 'uploads';
+                               $files = scandir($dir, 1);
+                               $j = 0;
+                               foreach($files as $fileName/* File in directory */){
+                                    if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
+                                        //Don't add a load option
+                                    }else{
+                                        echo "<option name='load' value='".$fileName."'>".$fileName."</options>";
+                                        echo '<br />';
+                                    }
+                                    $j++;
+                                    
+                               }
+                            ?>
+                            <!-- Input php selection list generation here -->
+                        </select>
+                    </div>
+                    <!-- Radio buttons below currently not rendering -->
+                    <div id="radioButtonDiv">
+                        <fieldset  data-role="controlgroup">
+                                
+                                Choose the type of chart/graph you would like.
+                                <br /><input type="radio" name="chartType" id="radio-choice-1" value="pie" checked="checked">
+                                <label for="radio-choice-1">Pie Chart</label>
+                         
+                                <br /><input type="radio" name="chartType" id="radio-choice-2" value="line">
+                                <label for="radio-choice-2">Line Graph</label>
+                         
+                                <br /><input type="radio" name="chartType" id="radio-choice-3" value="column">
+                                <label for="radio-choice-3">Bar Graph</label>
+                         
+
+                   
+                        </fieldset>   
+                    </div>
+                   <div id="submitButtonDiv" style="width: 50%; margin-left: auto; margin-right: auto;">
+                        <input type="submit" value="Go" id="indexFileSubmit" style="width: 100%;" onClick=""></button>
+                   </div>
+                </form>
+                 
+		</div>
     </body>
     
     
