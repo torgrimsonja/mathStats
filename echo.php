@@ -34,6 +34,9 @@ if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
 	existingFileContent();
 	makeFileLines();
 	makeHTML($fileLines);
+}else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default' && array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
+	$fileName = escape_html($_FILES['newFile']['name']);
+	bothMethods();
 }else{
 	die('Sorry buddy, you either didn\'t upload a file or it wasn\'t a CSV file.');
 }
@@ -62,6 +65,15 @@ function storeFile($path, $name){
 			}
 		}
 		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
+}
+
+function bothMethods(){
+	global $fileName;
+	global $fileContent;
+	global $uploadPath;
+	
+	
+	
 }
 
 function existingFileContent(){
@@ -185,7 +197,8 @@ function makeHTML($lines){
 							chart:{
 								renderTo: 'container',
 								defaultChartType: 'column',
-								type: '".$chartType."'
+								type: '".$chartType."',
+								zoomType: 'x'
 							},
 							title:{
 								text: '".$titleName."',
