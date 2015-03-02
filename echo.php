@@ -4,12 +4,12 @@ require_once('common.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-/*Set DEBUG to true in common
+//Set DEBUG to true in common
 if(DEBUG){
-	//die(print_r($_FILES)."<br />".print_r($_POST));
+	die(print_r($_FILES)."<br />".print_r($_POST));
 	//die(print_r($_FILES['newFile']));
 	//die(print_r($_POST));
-}*/
+}
 
 //Declare variables
 $titleName = 'Temperature Chart';
@@ -25,17 +25,19 @@ $chartType = array_key_exists('chartType', $_POST) ? escape_html($_POST['chartTy
 $uploadPath = "uploads/";
 
 //Logic
-if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
+if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name']) && $_POST['existingFile'] == 'default'){
 	$fileName = escape_html($_FILES['newFile']['name']);
 	storeFile($uploadPath, $fileName);
+	makeFileLines();
 	makeHTML($fileLines);
-}else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default'){
+}else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default' && $_FILES['newFile']['name'] == ''){
 	$fileName = $_POST['existingFile']; 
 	existingFileContent();
 	makeFileLines();
 	makeHTML($fileLines);
 }else if(array_key_exists('existingFile', $_POST) && $_POST['existingFile'] != 'default' && array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name'])){
 	$fileName = escape_html($_FILES['newFile']['name']);
+	$previousFileName = $_POST['existingFile'];
 	bothMethods();
 }else{
 	die('Sorry buddy, you either didn\'t upload a file or it wasn\'t a CSV file.');
@@ -47,33 +49,19 @@ function storeFile($path, $name){
 		$tmp_name = $_FILES["newFile"]["tmp_name"];
         $name = $_FILES["newFile"]["name"];
         $uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
-		/*
-		//echo "<script type='text/javascript'>console.log('Uploading: " . $name . "');</script><br />";
-		 //Check that it is in the uploads folder
-		if(array_key_exists('newFile', $_FILES) && file_exists($path . $name)){
-			//echo "<script type='text/javascript'>console.log('".$_FILES['newFile']['name']." was uploaded');</script><br />";
-		}else{
-			//echo "<script type='text/javascript'>console.log('ERROR, ".$name."was not successfully saved to directory.');</script><br />";
-		}
-        */
 		$fileContent = file_get_contents('uploads'.'/'.$name);
 		if(DEBUG){
+			//comment out other debug die statements to make this work
 			if($uploaded){
 				die(file_get_contents('uploads'.'/'.$name));
 			}else{
 				die($tmp_name);	
 			}
 		}
-		//die('Inside storeFile function....<br /><br />and fileContent = '.$fileContent);
 }
 
 function bothMethods(){
-	global $fileName;
-	global $fileContent;
-	global $uploadPath;
-	
-	
-	
+	redirect('index.php?msg=sameName');	
 }
 
 function existingFileContent(){

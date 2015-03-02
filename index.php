@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,6 +19,22 @@
 		<script type="text/javascript">
             console.log('index loaded');
         </script>
+		<?php
+			//Server checks for redirects off of erroneous user input
+            if(array_key_exists('msg', $_GET) && $_GET['msg'] == 'sameName'){
+                $errorText = 
+                "
+                <script type=text/javascript>
+                   $(document).ready(function errorAlert(){
+						alert('Sorry, you have selected two files for chart generation using both methods.  Please choose to use only the uploads button or the previous file dropdown menu.');   
+				   });
+                </script>
+                <br />
+                <br />
+                ";
+				echo $errorText;
+            }
+        ?>
 
         <div id="content">
             
@@ -62,12 +79,12 @@
                         <fieldset  data-role="controlgroup">
                                 
                                 Choose the type of chart/graph you would like.
-                                <br /><input type="radio" name="chartType" id="radio-choice-1" value="pie" checked="checked">
+                                <br /><input type="radio" name="chartType" id="radio-choice-2" value="line" checked="checked">
+                                <label for="radio-choice-2">Line Graph</label> 
+                                
+                                <br /><input type="radio" name="chartType" id="radio-choice-1" value="pie" >
                                 <label for="radio-choice-1">Pie Chart</label>
-                         
-                                <br /><input type="radio" name="chartType" id="radio-choice-2" value="line">
-                                <label for="radio-choice-2">Line Graph</label>
-                         
+                                       
                                 <br /><input type="radio" name="chartType" id="radio-choice-3" value="column">
                                 <label for="radio-choice-3">Bar Graph</label>
                          
