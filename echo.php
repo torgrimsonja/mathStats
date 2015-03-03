@@ -46,10 +46,32 @@ if(array_key_exists('newFile', $_FILES) && !empty($_FILES['newFile']['name']) &&
 //Page Level Functions
 function storeFile($path, $name){
 		global $fileContent;
+		$fileAlreadyExists = FALSE;
 		$tmp_name = $_FILES["newFile"]["tmp_name"];
         $name = $_FILES["newFile"]["name"];
-        $uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
+		$uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
 		$fileContent = file_get_contents('uploads'.'/'.$name);
+		//---------------------------
+		$dir = 'uploads';
+	    $files = scandir($dir, 1);
+	    $j = 0;
+	    foreach($files as $fileName/* File in directory */){
+			if($files[$j] == 'about_uploads_folder.txt.txt' || $files[$j] == '.' || $files[$j] == '..'){
+				//Don't add a load option
+			}else{
+				if($name == $fileName){
+					$fileAlreadyExists = TRUE;	
+				}
+			}
+			$j++;
+			
+	    }
+		//---------------------
+		if($fileAlreadyExists = FALSE){
+			$uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
+			
+		}
+		
 		if(DEBUG){
 			//comment out other debug die statements to make this work
 			if($uploaded){

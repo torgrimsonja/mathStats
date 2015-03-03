@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,6 +33,15 @@
                 ";
 				echo $errorText;
             }
+			
+			//Server checks for admin actions
+			if(array_key_exists('action', $_GET) && 
+			   $_GET['action'] == 'deleteRecord' &&
+			   array_key_exists('name', $_GET)
+			   ){
+				$fileToDelete = 'uploads/'.$_GET['name'];
+				unlink($fileToDelete);
+			}
         ?>
 
         <div id="content">
