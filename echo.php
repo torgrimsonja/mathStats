@@ -69,7 +69,13 @@ function storeFile($path, $name){
 		//---------------------
 		if($fileAlreadyExists = FALSE){
 			$uploaded = move_uploaded_file($tmp_name, 'uploads/'.$name);
-			
+			echo "<script type='text/javascrpt'>
+					console.log('file uploaded');
+				</script>";
+		}else{
+				echo "<script type='text/javascrpt'>
+					console.log('file was not uploaded, already existed');
+				</script>";
 		}
 		
 		if(DEBUG){
